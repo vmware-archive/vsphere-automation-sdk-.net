@@ -1,7 +1,7 @@
 ﻿/*
  * Copyright 2016 VMware, Inc.  All rights reserved.
  */
-namespace ExternalPscSsoWorkflow
+namespace vmware.samples.sso
 {
     using CommandLine;
     using System;

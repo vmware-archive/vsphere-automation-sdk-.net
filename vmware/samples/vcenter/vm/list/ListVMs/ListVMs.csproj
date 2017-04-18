@@ -45,7 +45,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ListVMs.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -53,6 +52,9 @@
       <Project>{1acd25a4-62ea-4b6f-a1df-6f1a531bbf4b}</Project>
       <Name>SamplesCommon</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

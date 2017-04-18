@@ -2,13 +2,12 @@
  * Copyright 2017 VMware, Inc.  All rights reserved.
  */
 
-namespace vmware.samples.samplecategory
+namespace vmware.samples.vcenter.vm.list
 {
-    using CommandLine;
     using System;
     using System.Collections.Generic;
-    using vcenter;
     using vmware.samples.common;
+    using vmware.vcenter;
 
     /// <summary>
     /// Demonstrates getting list of VMs present in vCenter
