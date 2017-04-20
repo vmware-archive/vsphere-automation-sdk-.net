@@ -1,4 +1,4 @@
-# VMware vSphere Automation SDK for Java
+# VMware vSphere Automation SDK for .NET
 ## Table of Contents
 - [Abstract](#abstract)
 - [Supported vCenter Releases](#supported-vcenter-releases)
