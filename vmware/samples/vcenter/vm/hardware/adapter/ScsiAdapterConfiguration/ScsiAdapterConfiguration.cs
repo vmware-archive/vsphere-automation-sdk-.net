@@ -13,6 +13,7 @@
 namespace vmware.samples.vcenter.vm.hardware.adapter
 {
     using CommandLine;
+    using common.authentication;
     using System;
     using System.Collections.Generic;
     using vmware.samples.common;
@@ -40,6 +41,12 @@ namespace vmware.samples.vcenter.vm.hardware.adapter
 
         public override void Run()
         {
+            // Login
+            VapiAuthHelper = new VapiAuthenticationHelper();
+            SessionStubConfiguration =
+                VapiAuthHelper.LoginByUsernameAndPassword(
+                    Server, UserName, Password);
+
             this.scsiService = VapiAuthHelper.StubFactory.CreateStub<Scsi>(
                 SessionStubConfiguration);
 
@@ -116,6 +123,7 @@ namespace vmware.samples.vcenter.vm.hardware.adapter
             List<ScsiTypes.Summary> scsiSummaries =
                 this.scsiService.List(this.vmId);
             scsiSummaries.ForEach(i => Console.WriteLine(i));
+            VapiAuthHelper.Logout();
         }
 
         public static void Main(string[] args)

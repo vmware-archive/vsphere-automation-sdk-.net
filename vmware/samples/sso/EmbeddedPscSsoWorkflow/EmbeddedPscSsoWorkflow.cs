@@ -72,7 +72,7 @@ namespace vmware.samples.sso
 
         public override void Cleanup()
         {
-            // No cleanup required for the sample
+            VapiAuthHelper.Logout();
         }
 
         public static void Main(string[] args)

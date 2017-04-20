@@ -44,8 +44,9 @@ Before you can run the SDK samples we'll need to walk you through the following 
 The SDK samples can be built either through command line or Visual Studio 
 1. Ensure that .NET Framework 4.5 is installed on the system
 2. Download nuget.exe from https://dist.nuget.org/index.html. (required only if building via command line)
-2. Update PATH environment variable to include the .NET Framework directory and the directory where nuget.exe resides.
-SET PATH=%PATH%;"C:\Windows\Microsoft.NET\Framework64\v4.0.30319";[path to nuget.exe directory]
+3. Update PATH environment variable to include the .NET Framework directory and the directory where nuget.exe resides.
+
+   SET PATH=%PATH%;"C:\Windows\Microsoft.NET\Framework64\v4.0.30319";\<path to nuget.exe directory\>
 
 ### Setting up a vSphere Test Environment
 **NOTE:** The samples are intended to be run against a freshly installed **non-Production** vSphere setup as the samples may make changes to the test environment and in some cases can destroy items when needed.
@@ -79,7 +80,7 @@ ListVMs [options]
   --server                      Required. Hostname of vCenter Server
   --username                    Required. Username to login to vCenter Server
   --password                    Required. Password to login to vCenter Server
-  --cleardata                   Specify this option to undo allpersistent
+  --cleardata                   Specify this option to undo all persistent
                                 results of running the sample
   --skip-server-verification    (Default: False) Optional: Specify this option
                                 if you do not want to perform SSL certificate
@@ -97,8 +98,9 @@ D:\vsphere-automation-sdk-.net\vmware\samples\vcenter\vm\list\ListVMs\bin\Releas
 ````
 
 ## API Documentation
-The API documentation can be downloaded from [here](doc/client.zip)
-Online version of the API documentation can be found [here](https://code.vmware.com/web/dp/doc/preview?id=4647)
+The API documentation can be downloaded from [here](doc/client.zip).
+
+Online version of the API documentation can be found [here](https://code.vmware.com/web/dp/doc/preview?id=4647).
 
 ## Submitting samples
 

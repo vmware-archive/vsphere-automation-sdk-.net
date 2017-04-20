@@ -12,6 +12,7 @@
  */
 namespace vmware.samples.vcenter.vm.list
 {
+    using common.authentication;
     using System;
     using System.Collections.Generic;
     using vmware.samples.common;
@@ -29,6 +30,12 @@ namespace vmware.samples.vcenter.vm.list
 
         public override void Run()
         {
+            // Login
+            VapiAuthHelper = new VapiAuthenticationHelper();
+            SessionStubConfiguration =
+                VapiAuthHelper.LoginByUsernameAndPassword(
+                    Server, UserName, Password);
+
             this.vmService =
                 VapiAuthHelper.StubFactory.CreateStub<VM>(
                     SessionStubConfiguration);
@@ -45,7 +52,7 @@ namespace vmware.samples.vcenter.vm.list
 
         public override void Cleanup()
         {
-            // Cleanup after the sample run
+            VapiAuthHelper.Logout();
         }
 
         public static void Main(string[] args)

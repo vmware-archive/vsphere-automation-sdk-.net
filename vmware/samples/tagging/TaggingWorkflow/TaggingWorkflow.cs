@@ -13,6 +13,7 @@
 namespace vmware.samples.tagging.workflow
 {
     using CommandLine;
+    using common.authentication;
     using System;
     using System.Collections.Generic;
     using vapi.std;
@@ -46,6 +47,12 @@ namespace vmware.samples.tagging.workflow
         public string DatacenterName { get; set; }
         public override void Run()
         {
+            // Login
+            VapiAuthHelper = new VapiAuthenticationHelper();
+            SessionStubConfiguration =
+                VapiAuthHelper.LoginByUsernameAndPassword(
+                    Server, UserName, Password);
+
             // Get the cluster
             this.clusterId = new DynamicID();
             this.clusterId.SetType("ClusterComputeResource");
@@ -130,6 +137,7 @@ namespace vmware.samples.tagging.workflow
                 this.categoryService.Delete(categoryId);
                 Console.WriteLine("Deleted category '{0}'", this.categoryName);
             }
+            VapiAuthHelper.Logout();
         }
 
         private string CreateCategory(

@@ -13,6 +13,7 @@
 namespace vmware.samples.vcenter.vm.hardware
 {
     using CommandLine;
+    using common.authentication;
     using System;
     using System.Collections.Generic;
     using vmware.samples.common;
@@ -50,6 +51,12 @@ namespace vmware.samples.vcenter.vm.hardware
 
         public override void Run()
         {
+            // Login
+            VapiAuthHelper = new VapiAuthenticationHelper();
+            SessionStubConfiguration =
+                VapiAuthHelper.LoginByUsernameAndPassword(
+                    Server, UserName, Password);
+
             this.diskService = VapiAuthHelper.StubFactory.CreateStub<Disk>(
                 SessionStubConfiguration);
             this.ethernetService =
@@ -93,8 +100,8 @@ namespace vmware.samples.vcenter.vm.hardware
             // Get the device identifiers for disks
             List<DiskTypes.Summary> diskSummaries =
                 this.diskService.List(this.vmId);
-            Console.WriteLine("\nList of disks attached to the VM: \n"
-                + diskSummaries);
+            Console.WriteLine("\nList of disks attached to the VM: \n");
+            diskSummaries.ForEach(i => Console.WriteLine(i));
             List<String> diskIds = new List<String>();
             foreach(DiskTypes.Summary diskSummary in diskSummaries)
             {
@@ -104,8 +111,8 @@ namespace vmware.samples.vcenter.vm.hardware
             // Get device identifiers for Ethernet NICs
             List<EthernetTypes.Summary> ethernetSummaries =
                 this.ethernetService.List(this.vmId);
-            Console.WriteLine("\nList of Ethernet NICs attached to the VM: \n"
-                + ethernetSummaries);
+            Console.WriteLine("\nList of Ethernet NICs attached to the VM:\n");
+            ethernetSummaries.ForEach(i => Console.WriteLine(i));
             List<String> ethernetIds = new List<String>();
             foreach(EthernetTypes.Summary ethernetSummary in ethernetSummaries)
             {
@@ -142,6 +149,7 @@ namespace vmware.samples.vcenter.vm.hardware
             List<DeviceTypes.Entry> bootDeviceEntries =
                 this.bootDeviceService.Get(this.vmId);
             bootDeviceEntries.ForEach(i => Console.WriteLine(i));
+            VapiAuthHelper.Logout();
         }
 
         public static void Main(string[] args)

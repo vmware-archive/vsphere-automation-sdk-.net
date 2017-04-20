@@ -4,6 +4,7 @@
 namespace vmware.samples.vcenter.vm.hardware.adapter
 {
     using CommandLine;
+    using common.authentication;
     using System;
     using System.Collections.Generic;
     using vmware.samples.common;
@@ -31,6 +32,12 @@ namespace vmware.samples.vcenter.vm.hardware.adapter
 
         public override void Run()
         {
+            // Login
+            VapiAuthHelper = new VapiAuthenticationHelper();
+            SessionStubConfiguration =
+                VapiAuthHelper.LoginByUsernameAndPassword(
+                    Server, UserName, Password);
+
             this.sataService = VapiAuthHelper.StubFactory.CreateStub<Sata>(
                 SessionStubConfiguration);
 
@@ -96,6 +103,7 @@ namespace vmware.samples.vcenter.vm.hardware.adapter
             List<SataTypes.Summary> sataSummaries =
                 this.sataService.List(this.vmId);
             sataSummaries.ForEach(i => Console.WriteLine(i));
+            VapiAuthHelper.Logout();
         }
 
         public static void Main(string[] args)

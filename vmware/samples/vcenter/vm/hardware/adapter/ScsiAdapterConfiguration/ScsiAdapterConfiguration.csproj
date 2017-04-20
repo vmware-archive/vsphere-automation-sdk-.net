@@ -7,8 +7,8 @@
     <ProjectGuid>{57FB66DE-CA57-4DCF-850C-8599630E6CE5}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SataAdapterConfiguration</RootNamespace>
-    <AssemblyName>SataAdapterConfiguration</AssemblyName>
+    <RootNamespace>ScsiAdapterConfiguration</RootNamespace>
+    <AssemblyName>ScsiAdapterConfiguration</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

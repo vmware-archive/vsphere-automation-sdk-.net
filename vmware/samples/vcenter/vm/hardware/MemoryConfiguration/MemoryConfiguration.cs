@@ -13,6 +13,7 @@
 namespace vmware.samples.vcenter.vm.hardware
 {
     using CommandLine;
+    using common.authentication;
     using System;
     using vmware.samples.common;
     using vmware.samples.vcenter.helpers;
@@ -38,6 +39,12 @@ namespace vmware.samples.vcenter.vm.hardware
 
         public override void Run()
         {
+            // Login
+            VapiAuthHelper = new VapiAuthenticationHelper();
+            SessionStubConfiguration =
+                VapiAuthHelper.LoginByUsernameAndPassword(
+                    Server, UserName, Password);
+
             this.memoryService =
                 VapiAuthHelper.StubFactory.CreateStub<Memory>(
                     SessionStubConfiguration);
@@ -90,6 +97,7 @@ namespace vmware.samples.vcenter.vm.hardware
             Console.WriteLine(memoryUpdateSpec);
             MemoryTypes.Info memoryInfo = memoryService.Get(this.vmId);
             Console.WriteLine(memoryInfo);
+            VapiAuthHelper.Logout();
         }
 
         public static void Main(string[] args)

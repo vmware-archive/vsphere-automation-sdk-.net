@@ -13,6 +13,7 @@
 namespace vmware.samples.vcenter.vm.hardware
 {
     using CommandLine;
+    using common.authentication;
     using helpers;
     using System;
     using System.Collections.Generic;
@@ -59,6 +60,12 @@ namespace vmware.samples.vcenter.vm.hardware
 
         public override void Run()
         {
+            // Login
+            VapiAuthHelper = new VapiAuthenticationHelper();
+            SessionStubConfiguration =
+                VapiAuthHelper.LoginByUsernameAndPassword(
+                    Server, UserName, Password);
+
             this.powerService = VapiAuthHelper.StubFactory.CreateStub<Power>(
                 SessionStubConfiguration);
             this.ethernetService =
@@ -239,6 +246,7 @@ namespace vmware.samples.vcenter.vm.hardware
             }
             nicSummaries = this.ethernetService.List(this.vmId);
             nicSummaries.ForEach(i => Console.WriteLine(i));
+            VapiAuthHelper.Logout();
         }
 
         public static void Main(string[] args)

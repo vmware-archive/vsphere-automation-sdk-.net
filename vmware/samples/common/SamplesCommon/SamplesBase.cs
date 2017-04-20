@@ -1,7 +1,15 @@
-﻿/*
- * Copyright 2015, 2016 VMware, Inc.  All rights reserved.
+﻿/**
+ * *******************************************************
+ * Copyright VMware, Inc. 2015, 2016.  All Rights Reserved.
+ * SPDX-License-Identifier: MIT
+ * *******************************************************
+ *
+ * DISCLAIMER. THIS PROGRAM IS PROVIDED TO YOU "AS IS" WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, WHETHER ORAL OR WRITTEN,
+ * EXPRESS OR IMPLIED. THE AUTHOR SPECIFICALLY DISCLAIMS ANY IMPLIED
+ * WARRANTIES OR CONDITIONS OF MERCHANTABILITY, SATISFACTORY QUALITY,
+ * NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE.
  */
-
 namespace vmware.samples.common
 {
     using authentication;
@@ -9,12 +17,9 @@ namespace vmware.samples.common
     using CommandLine.Text;
     using System;
     using System.Collections.Generic;
-    using System.Configuration;
-    using System.Linq;
     using System.Net;
     using System.Net.Security;
     using System.Security.Cryptography.X509Certificates;
-    using System.Text;
     using vapi.bindings;
 
     /// <summary>
@@ -50,11 +55,11 @@ namespace vmware.samples.common
             DefaultValue = false, Required = false)]
         public virtual bool SkipServerVerification { get; set; }
 
-        public VapiAuthenticationHelper VapiAuthHelper { get; private set;  }
+        public VapiAuthenticationHelper VapiAuthHelper { get; set;  }
 
-        public VimAuthenticationHelper VimAuthHelper { get; private set; }
+        public VimAuthenticationHelper VimAuthHelper { get; set; }
 
-        public StubConfiguration SessionStubConfiguration { get; private set; }
+        public StubConfiguration SessionStubConfiguration { get; set; }
 
         [HelpOption]
         public string GetUsage()
@@ -67,38 +72,12 @@ namespace vmware.samples.common
         }
 
         /// <summary>
-        /// Connects to service endpoints.
-        /// </summary>
-        public void Login()
-        {
-            System.Net.ServicePointManager.SecurityProtocol |=
-                System.Net.SecurityProtocolType.Tls12;
-            VapiAuthHelper = new VapiAuthenticationHelper();
-            VimAuthHelper = new VimAuthenticationHelper();
-
-            SessionStubConfiguration =
-                VapiAuthHelper.LoginByUsernameAndPassword(
-                    Server, UserName, Password);
-            VimAuthHelper.LoginByUsernameAndPassword(
-                Server, UserName, Password);
-        }
-
-        /// <summary>
         /// Runs the sample. Each sample will provider its own implementation
         /// for this method.
         /// </summary>
         public abstract void Run();
 
         public abstract void Cleanup();
-
-        /// <summary>
-        /// Logs out of the server
-        /// </summary>
-        public void Logout()
-        {
-            VapiAuthHelper.Logout();
-            VimAuthHelper.Logout();
-        }
 
         /// <summary>
         /// Sets up the server certificate validation callback method depending
@@ -127,6 +106,8 @@ namespace vmware.samples.common
                 ServicePointManager.ServerCertificateValidationCallback +=
                     Validate;
             }
+            System.Net.ServicePointManager.SecurityProtocol |=
+                System.Net.SecurityProtocolType.Tls12;
         }
 
         private bool Validate(object sender,
@@ -195,13 +176,11 @@ namespace vmware.samples.common
             if (Parser.Default.ParseArguments(args, this))
             {
                 SetupSslTrustForServer();
-                Login();
                 Run();
                 if (ClearData)
                 {
                     Cleanup();
                 }
-                Logout();
                 Console.ReadLine();
             }
         }

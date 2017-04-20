@@ -13,6 +13,7 @@
 namespace vmware.samples.vcenter.vm.hardware
 {
     using CommandLine;
+    using common.authentication;
     using System;
     using vmware.samples.common;
     using vmware.samples.vcenter.helpers;
@@ -38,6 +39,12 @@ namespace vmware.samples.vcenter.vm.hardware
 
         public override void Run()
         {
+            // Login
+            VapiAuthHelper = new VapiAuthenticationHelper();
+            SessionStubConfiguration =
+                VapiAuthHelper.LoginByUsernameAndPassword(
+                    Server, UserName, Password);
+
             this.cpuService = VapiAuthHelper.StubFactory.CreateStub<Cpu>(
                 SessionStubConfiguration);
 
@@ -93,6 +100,7 @@ namespace vmware.samples.vcenter.vm.hardware
             CpuTypes.Info cpuInfo = cpuService.Get(this.vmId);
             Console.WriteLine("VM ID = " + this.vmId);
             Console.WriteLine(cpuInfo);
+            VapiAuthHelper.Logout();
         }
 
         public static void Main(string[] args)

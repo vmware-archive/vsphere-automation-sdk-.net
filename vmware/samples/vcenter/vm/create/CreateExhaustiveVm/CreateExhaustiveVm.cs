@@ -13,6 +13,7 @@
 namespace vmware.samples.vcenter.vm.create
 {
     using CommandLine;
+    using common.authentication;
     using helpers;
     using System;
     using System.Collections.Generic;
@@ -99,6 +100,12 @@ namespace vmware.samples.vcenter.vm.create
 
         public override void Run()
         {
+            // Login
+            VapiAuthHelper = new VapiAuthenticationHelper();
+            SessionStubConfiguration =
+                VapiAuthHelper.LoginByUsernameAndPassword(
+                    Server, UserName, Password);
+
             // Get a placement spec
             VMTypes.PlacementSpec vmPlacementSpec =
                 PlacementHelper.GetPlacementSpecForCluster(
@@ -132,6 +139,7 @@ namespace vmware.samples.vcenter.vm.create
             {
                 this.vmService.Delete(this.exhaustiveVMId);
             }
+            VapiAuthHelper.Logout();
         }
 
         private void CreateVm(VMTypes.PlacementSpec vmPlacementSpec,

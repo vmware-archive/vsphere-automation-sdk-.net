@@ -13,6 +13,7 @@
 namespace vmware.samples.vcenter.vm.hardware
 {
     using CommandLine;
+    using common.authentication;
     using System;
     using vmware.samples.common;
     using vmware.samples.vcenter.helpers;
@@ -39,6 +40,12 @@ namespace vmware.samples.vcenter.vm.hardware
 
         public override void Run()
         {
+            // Login
+            VapiAuthHelper = new VapiAuthenticationHelper();
+            SessionStubConfiguration =
+                VapiAuthHelper.LoginByUsernameAndPassword(
+                    Server, UserName, Password);
+
             this.bootService = VapiAuthHelper.StubFactory.CreateStub<Boot>(
                 SessionStubConfiguration);
 
@@ -104,6 +111,7 @@ namespace vmware.samples.vcenter.vm.hardware
             this.bootService.Update(this.vmId, bootUpdateSpec);
             BootTypes.Info bootInfo = this.bootService.Get(this.vmId);
             Console.WriteLine(bootInfo);
+            VapiAuthHelper.Logout();
         }
 
         public static void Main(string[] args)

@@ -13,6 +13,7 @@
 namespace vmware.samples.vcenter.vm.hardware
 {
     using CommandLine;
+    using common.authentication;
     using helpers;
     using System;
     using System.Collections.Generic;
@@ -50,6 +51,12 @@ namespace vmware.samples.vcenter.vm.hardware
 
         public override void Run()
         {
+            // Login
+            VapiAuthHelper = new VapiAuthenticationHelper();
+            SessionStubConfiguration =
+                VapiAuthHelper.LoginByUsernameAndPassword(
+
+                    Server, UserName, Password);
             this.cdromService =
                 VapiAuthHelper.StubFactory.CreateStub<Cdrom>(
                     SessionStubConfiguration);
@@ -72,47 +79,47 @@ namespace vmware.samples.vcenter.vm.hardware
             Console.WriteLine(sataCreateSpec);
 
             Console.WriteLine("\n\n### Example: List all CD-ROMs");
-            listAllCdroms();
+            ListAllCdroms();
 
             Console.WriteLine("\n\n### Example: Create CD-ROM with ISO_FILE"
                     + " backing");
-            createCdrom(CdromTypes.BackingType.ISO_FILE);
+            CreateCdrom(CdromTypes.BackingType.ISO_FILE);
 
             Console.WriteLine("\n\n### Example: Create CD-ROM with "
                                + "CLIENT_DEVICE backing");
-            createCdrom(CdromTypes.BackingType.CLIENT_DEVICE);
+            CreateCdrom(CdromTypes.BackingType.CLIENT_DEVICE);
 
             Console.WriteLine("\n\n### Example: Create SATA CD-ROM with"
                                + " CLIENT_DEVICE backing");
-            createCdromForAdapterType(CdromTypes.HostBusAdapterType.SATA,
+            CreateCdromForAdapterType(CdromTypes.HostBusAdapterType.SATA,
                 CdromTypes.BackingType.CLIENT_DEVICE);
 
             Console.WriteLine("\n\n### Example: Create SATA CD-ROM on specific"
                                + " bus with CLIENT_DEVICE backing");
-            createSataCdromAtSpecificLocation(
+            CreateSataCdromAtSpecificLocation(
                 CdromTypes.BackingType.CLIENT_DEVICE, 0L, null);
 
             Console.WriteLine("\n\n### Example: Create SATA CD-ROM on specific"
                                + " bus and unit number with CLIENT_DEVICE "
                                + "backing");
-            createSataCdromAtSpecificLocation(
+            CreateSataCdromAtSpecificLocation(
                 CdromTypes.BackingType.CLIENT_DEVICE, 0L, 10L);
 
             Console.WriteLine("\n\n### Example: Create IDE CD-ROM with"
                                + " CLIENT_DEVICE backing");
-            createCdromForAdapterType(CdromTypes.HostBusAdapterType.IDE,
+            CreateCdromForAdapterType(CdromTypes.HostBusAdapterType.IDE,
                 CdromTypes.BackingType.CLIENT_DEVICE);
 
             Console.WriteLine("\n\n### Example: Create IDE CD-ROM as a slave"
                                + " device with HOST_DEVICE backing");
-            createIdeCdromAsSpecificDevice(
+            CreateIdeCdromAsSpecificDevice(
                 CdromTypes.BackingType.HOST_DEVICE, false);
         }
 
         /// <summary>
         /// Displays info of each CD-ROM on the VM
         /// </summary>
-        private void listAllCdroms()
+        private void ListAllCdroms()
         {
             List<CdromTypes.Summary> cdromSummaries =
                 this.cdromService.List(this.vmId);
@@ -132,7 +139,7 @@ namespace vmware.samples.vcenter.vm.hardware
         /// </summary>
         /// <param name="backingType">backing type for the CD-ROM device
         /// </param>
-        private void createCdrom(CdromTypes.BackingType backingType)
+        private void CreateCdrom(CdromTypes.BackingType backingType)
         {
             CdromTypes.CreateSpec cdromCreateSpec =
                     new CdromTypes.CreateSpec();
@@ -163,7 +170,7 @@ namespace vmware.samples.vcenter.vm.hardware
         /// <param name="hostBusAdapterType">host bus adapter type for CD-ROM
         /// </param>
         /// <param name="backingType">backing type for the CD-ROM</param>
-        private void createCdromForAdapterType(
+        private void CreateCdromForAdapterType(
             CdromTypes.HostBusAdapterType hostBusAdapterType,
             CdromTypes.BackingType backingType)
         {
@@ -194,7 +201,7 @@ namespace vmware.samples.vcenter.vm.hardware
         /// <param name="backingType">backing type for CD-ROM</param>
         /// <param name="isMaster">true, if CD-ROM should be created as a
         ///  master device, false otherwise </param>
-        private void createIdeCdromAsSpecificDevice(
+        private void CreateIdeCdromAsSpecificDevice(
             CdromTypes.BackingType backingType, bool isMaster)
         {
 
@@ -230,7 +237,7 @@ namespace vmware.samples.vcenter.vm.hardware
         /// <param name="backingType">backing type for CD-ROM</param>
         /// <param name="bus">bus number</param>
         /// <param name="unit">unit number</param>
-        private void createSataCdromAtSpecificLocation(
+        private void CreateSataCdromAtSpecificLocation(
             CdromTypes.BackingType backingType, long? bus, long? unit)
         {
 
@@ -302,7 +309,8 @@ namespace vmware.samples.vcenter.vm.hardware
             {
                 this.cdromService.Delete(this.vmId, cdromId);
             }
-            listAllCdroms();
+            ListAllCdroms();
+            VapiAuthHelper.Logout();
         }
 
         public static void Main(string[] args)
