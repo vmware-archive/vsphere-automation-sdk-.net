@@ -22,9 +22,10 @@ namespace vmware.samples.vcenter.vm.hardware
     using vmware.vcenter.vm.hardware;
 
     /// <summary>
-    /// Demonstrates how to configure virtual ethernet adapters of a virtual
+    /// Description: Demonstrates how to configure virtual ethernet adapters of a virtual
     /// machine.
     ///
+    /// Author: VMware, Inc.
     /// Sample Prerequisites: The sample needs an existing VM.
     /// </summary>
     public class EthernetConfiguration : SamplesBase

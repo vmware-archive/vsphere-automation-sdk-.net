@@ -19,10 +19,10 @@ namespace vmware.samples.vcenter.vm.list
     using vmware.vcenter;
 
     /// <summary>
-    /// Demonstrates getting list of VMs present in vCenter
+    /// Description: Demonstrates getting list of VMs present in vCenter
     ///
-    /// Sample Prerequisites:
-    /// vCenter Server
+    /// Author: VMware, Inc.
+    /// Sample Prerequisites: vCenter Server
     /// </summary>
     public class ListVMs : SamplesBase
     {

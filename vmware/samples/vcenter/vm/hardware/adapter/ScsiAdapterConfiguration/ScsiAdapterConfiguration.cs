@@ -21,9 +21,10 @@ namespace vmware.samples.vcenter.vm.hardware.adapter
     using vmware.vcenter.vm.hardware.adapter;
 
     /// <summary>
-    /// Demonstrates how to configure virtual SCSI adapters of a virtual
+    /// Description: Demonstrates how to configure virtual SCSI adapters of a virtual
     /// machine.
     ///
+    /// Author: VMware, Inc.
     /// Sample Prerequisites: The sample needs an existing VM.
     /// </summary>
     public class ScsiAdapterConfiguration : SamplesBase

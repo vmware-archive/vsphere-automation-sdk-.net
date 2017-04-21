@@ -5,8 +5,8 @@ The SDK contains the Lookup Service WSDL files. The Lookup Service WSDL files ar
 
 Sample                    | Description
 --------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------
-EmbeddedPscSsoWorkflow.cs | Demonstrates how to create a SSO connection using a SAML Bearer token when we have a vcenter server and embedded Platform Services Controller
-ExternalPscSsoWorkflow.cs | Demonstrates how to create a SSO connection using a SAML Bearer token when we have a vcenter server and external Platform Services Controller
+EmbeddedPscSsoWorkflow.cs | Demonstrates how to create a SSO connection using a SAML Bearer token when we have a vCenter Server and embedded Platform Services Controller
+ExternalPscSsoWorkflow.cs | Demonstrates how to create a SSO connection using a SAML Bearer token when we have a vCenter Server and external Platform Services Controller
 
 ### Testbed Requirement:
     - 1 vCenter Server

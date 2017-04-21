@@ -20,9 +20,10 @@ namespace vmware.samples.vcenter.vm.hardware
     using vmware.vcenter.vm.hardware;
 
     /// <summary>
-    /// Demonstrates how to configure the memory related settings of a virtual
+    /// Description: Demonstrates how to configure the memory related settings of a virtual
     /// machine.
     ///
+    /// Author: VMware, Inc.
     /// Sample Prerequisites: This sample needs an existing VM.
     /// </summary>
     public class MemoryConfiguration : SamplesBase

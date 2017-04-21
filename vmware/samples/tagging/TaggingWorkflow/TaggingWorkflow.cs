@@ -22,7 +22,9 @@ namespace vmware.samples.tagging.workflow
     using vmware.samples.common;
 
     /// <summary>
-    /// Demonstrates CRUD operations on a sample tag.
+    /// Description: Demonstrates CRUD operations on a sample tag.
+    ///
+    /// Author: VMware, Inc.
     /// </summary>
     public class TaggingWorkflow : SamplesBase
     {

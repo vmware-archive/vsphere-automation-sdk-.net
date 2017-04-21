@@ -21,8 +21,9 @@ namespace vmware.samples.vcenter.vm.create
     using vmware.vcenter.vm;
 
     /// <summary>
-    /// Demonstrates how to create a VM with system provided defaults
+    /// Description: Demonstrates how to create a VM with system provided defaults
     ///
+    /// Author: VMware, Inc.
     /// Sample Prerequisites:
     /// The sample needs a datacenter and the following resources:
     /// - vm folder

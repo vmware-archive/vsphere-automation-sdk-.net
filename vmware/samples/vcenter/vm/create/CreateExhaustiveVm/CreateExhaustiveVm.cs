@@ -24,25 +24,23 @@ namespace vmware.samples.vcenter.vm.create
     using vmware.vcenter.vm.hardware.boot;
 
     /// <summary>
-    /// Create an exhaustive VM with the following configuration:
-    /// - Hardware Version = VMX_11 (for 6.0)
-    /// - CPU (count = 2, coresPerSocket = 2, hotAddEnabled = false,
-    ///   hotRemoveEnabled = false)
-    /// - Memory (size_mib = 2 GB, hotAddEnabled = false)
-    /// - 3 Disks and specify each of the HBAs and the unit numbers
-    ///   (capacity=40 GB, name=<some value>, spaceEfficient=true)
-    /// - Specify 2 ethernet adapters, one using a Standard Portgroup backing
-    ///   and the other using a DISTRIBUTED_PORTGROUP networking backing.
-    ///        # nic1: Specify Ethernet (macType=MANUAL,
-    ///        macAddress=<some value>)
-    ///        # nic2: Specify Ethernet (macType=GENERATED)
-    /// - 1 CDROM (type=ISO_FILE, file="small.iso", startConnected=true)
-    /// - 1 Serial Port (type=NETWORK_SERVER, file="tcp://localhost/16000",
-    ///   startConnected=true)
-    /// - 1 Parallel Port  (type=HOST_DEVICE, startConnected=false)
-    /// - 1 Floppy Drive (type=CLIENT_DEVICE)
-    /// - Boot, type=BIOS
-    /// - BootDevice order: CDROM, DISK, ETHERNET
+    /// Description: Demonstrates how to create a exhaustive VM with the below
+    /// configuration: 3 disks, 2 nics, 2 vcpu, 2 GB, memory, boot=BIOS,
+    /// 1 cdrom, 1 serial port, 1 parallel port, 1 floppy,
+    /// boot_device=[CDROM, DISK, ETHERNET])
+    ///
+    /// Author: VMware, Inc.
+    /// Sample Prerequisites:
+    /// The sample needs a datacenter and the following resources:
+    /// - vm folder
+    /// - resource pool
+    /// - datastore
+    /// - cluster
+    /// - A standard switch network
+    /// - A distributed switch network
+    /// - An iso file on the datastore mentioned above
+    ///
+    /// Author: VMware, Inc.
     /// </summary>
     public class CreateExhaustiveVm : SamplesBase
     {
@@ -142,6 +140,27 @@ namespace vmware.samples.vcenter.vm.create
             VapiAuthHelper.Logout();
         }
 
+        /// <summary>
+        /// Create an exhaustive VM with the following configuration:
+        /// - Hardware Version = VMX_11 (for 6.0)
+        /// - CPU (count = 2, coresPerSocket = 2, hotAddEnabled = false,
+        ///   hotRemoveEnabled = false)
+        /// - Memory (size_mib = 2 GB, hotAddEnabled = false)
+        /// - 3 Disks and specify each of the HBAs and the unit numbers
+        ///   (capacity=40 GB, name=<some value>, spaceEfficient=true)
+        /// - Specify 2 ethernet adapters, one using a Standard Portgroup backing
+        ///   and the other using a DISTRIBUTED_PORTGROUP networking backing.
+        ///        # nic1: Specify Ethernet (macType=MANUAL,
+        ///        macAddress=<some value>)
+        ///        # nic2: Specify Ethernet (macType=GENERATED)
+        /// - 1 CDROM (type=ISO_FILE, file="small.iso", startConnected=true)
+        /// - 1 Serial Port (type=NETWORK_SERVER, file="tcp://localhost/16000",
+        ///   startConnected=true)
+        /// - 1 Parallel Port  (type=HOST_DEVICE, startConnected=false)
+        /// - 1 Floppy Drive (type=CLIENT_DEVICE)
+        /// - Boot, type=BIOS
+        /// - BootDevice order: CDROM, DISK, ETHERNET
+        /// </summary>
         private void CreateVm(VMTypes.PlacementSpec vmPlacementSpec,
             string standardNetworkBacking, string distributedNetworkBacking)
         {

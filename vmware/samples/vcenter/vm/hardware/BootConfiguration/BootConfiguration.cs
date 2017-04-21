@@ -20,9 +20,10 @@ namespace vmware.samples.vcenter.vm.hardware
     using vmware.vcenter.vm.hardware;
 
     /// <summary>
-    /// Demonstrates how to configure the settings used when booting a virtual
-    /// machine.
+    /// Description: Demonstrates how to configure the settings used when
+    /// booting a virtual machine.
     ///
+    /// Author: VMware, Inc.
     /// Sample Prerequisites: The sample needs an existing VM.
     /// </summary>
     public class BootConfiguration : SamplesBase

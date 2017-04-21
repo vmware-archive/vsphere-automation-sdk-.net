@@ -24,9 +24,10 @@ namespace vmware.samples.vcenter.vm.create
     using vmware.vcenter.vm.hardware.boot;
 
     /// <summary>
-    /// Demonstrates how to create a basic VM with following configuration:
+    /// Description: Demonstrates how to create a basic VM with following configuration:
     /// Basic VM (2 disks, 1 nic)
     ///
+    /// Author: VMware, Inc.
     /// Sample Prerequisites:
     /// The sample needs a datacenter and the following resources:
     /// - vm folder

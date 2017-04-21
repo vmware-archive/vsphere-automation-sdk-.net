@@ -23,9 +23,10 @@ namespace vmware.samples.vcenter.vm.hardware
     using vmware.vcenter.vm.hardware.boot;
 
     /// <summary>
-    /// Demonstrates how to modify the boot devices used by a virtual machine,
+    /// Description: Demonstrates how to modify the boot devices used by a virtual machine,
     /// and in what order they are tried.
     ///
+    /// Author: VMware, Inc.
     /// Sample Prerequisites:
     /// The sample needs an existing VM with the following minimum number of
     /// devices:

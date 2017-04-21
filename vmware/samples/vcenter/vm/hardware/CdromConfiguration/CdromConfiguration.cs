@@ -23,8 +23,9 @@ namespace vmware.samples.vcenter.vm.hardware
     using vmware.vcenter.vm.hardware.adapter;
 
     /// <summary>
-    /// Demonstrates how to configure a CD-ROM device for a VM..
+    /// Description: Demonstrates how to configure a CD-ROM device for a VM.
     ///
+    /// Author: VMware, Inc.
     /// Sample Prerequisites: The sample needs an existing VM and an iso file
     ///  on a datastore.
     /// </summary>

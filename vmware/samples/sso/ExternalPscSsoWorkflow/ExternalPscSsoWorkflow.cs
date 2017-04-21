@@ -21,6 +21,13 @@ namespace vmware.samples.sso
     using vmware.vapi.util.security;
     using vmware.vcenter;
 
+    /// <summary>
+    /// Description: Demonstrates how to create a SSO connection using a SAML
+    /// Bearer token when we have a vCenter server and external Platform
+    /// Services Controller.
+    ///
+    /// Author: VMware Inc.
+    /// </summary>
     public class ExternalPscSsoWorkflow : SamplesBase
     {
         [Option("lookupserviceurl", HelpText = "url of the lookup service",
