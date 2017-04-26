@@ -8,7 +8,6 @@
   - [Setting up a vSphere Test Environment](#setting-up-a-vsphere-test-environment)
   - [Building the Samples](#building-the-samples)
   - [Running the Samples](#running-the-samples)
-  - [Importing the samples to eclipse](#importing-the-samples-to-eclipse)
 - [API Documentation](#api-documentation)
 - [Submitting samples](#submitting-samples)
   - [Required Information](#required-information)
@@ -34,10 +33,9 @@ vCenter 6.0 and 6.5.
 Certain APIs and samples that are introduced in 6.5 release, such as vCenter, Virtual Machine and Appliance Management. 
 
 ## Quick Start Guide
-This document will walk you through getting up and running with the .NET SDK Samples. Prior to running the samples you will need to setup a vCenter test environment and install maven, the following steps will take you through this process.
-Before you can run the SDK samples we'll need to walk you through the following steps:
+This document will walk you through getting up and running with the .NET SDK Samples. Prior to running the samples you will need to setup a vCenter test environment and install nuget, the following steps will take you through this process.
 
-1. Setting up maven
+1. Setting up build environment
 2. Setting up a vSphere test environment
 
 ### Setting up build environment
@@ -122,7 +120,7 @@ The following information must be included in the README.md for the sample.
 The following information should be included when possible. Inclusion of information provides valuable information to consumers of the resource.
 * vSphere version against which the sample was developed/tested
 * SDK version against which the sample was developed/tested
-* Java version against which the sample was developed/tested
+* .NET Framework version against which the sample was developed/tested
 
 ### Contribution Process
 
@@ -168,4 +166,4 @@ Items added to the repository, including items from the Board members, require 2
 * [VMware Code](https://code.vmware.com/home)
 * [VMware Developer Community](https://communities.vmware.com/community/vmtn/developer)
 * VMware vSphere [REST API Reference documentation](https://code.vmware.com/web/dp/doc/preview?id=4645).
-* [VMware Java forum](https://code.vmware.com/forums/7508/vsphere-automation-sdk-for-java)
+* [vSphere Automation SDK for .NET forum](https://code.vmware.com/forums/7504/vsphere-automation-sdk-for-.net)
