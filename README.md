@@ -33,7 +33,7 @@ vCenter 6.0 and 6.5.
 Certain APIs and samples that are introduced in 6.5 release, such as vCenter, Virtual Machine and Appliance Management. 
 
 ## Quick Start Guide
-This document will walk you through getting up and running with the .NET SDK Samples. Prior to running the samples you will need to setup a vCenter test environment and install nuget, the following steps will take you through this process.
+This document will walk you through getting up and running with the .NET SDK Samples. Prior to running the samples you will need to setup a vCenter test environment and install NuGet CLI. The following steps will take you through this process.
 
 1. Setting up build environment
 2. Setting up a vSphere test environment
@@ -60,12 +60,12 @@ Apart from the above, each individual sample may require additional setup. Pleas
 #### Using CLI
 In the root directory of your folder after cloning the repository, run the below commands -
 
-`nuget restore vSphere-Samples-6.5.0.sln`
+`nuget restore vSphere-Samples.sln`
 
-`msbuild vSphere-Samples-6.5.0.sln /t:Build /p:Configuration=Release`
+`msbuild vSphere-Samples.sln /t:Build /p:Configuration=Release`
 
 #### Using Visual Studio (2015 or higher)
-1. Open the vSphere-Samples-6.5.0.sln file using Visual Studio
+1. Open the vSphere-Samples.sln file using Visual Studio
 2. Right-click on the solution in Solution Explorer and select "Build Solution"
 
 ### Running the Samples
