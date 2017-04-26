@@ -44,7 +44,7 @@ The SDK samples can be built either through command line or Visual Studio
 2. Download nuget.exe from https://dist.nuget.org/index.html. (required only if building via command line)
 3. Update PATH environment variable to include the .NET Framework directory and the directory where nuget.exe resides.
 
-   SET PATH=%PATH%;"C:\Windows\Microsoft.NET\Framework64\v4.0.30319";"C:\Windows\Microsoft.NET\Framework\v4.0.30319";\<path to nuget.exe directory\>
+   `SET PATH=%PATH%;"C:\Windows\Microsoft.NET\Framework64\v4.0.30319";"C:\Windows\Microsoft.NET\Framework\v4.0.30319";\<path to nuget.exe directory\>`
 
 ### Setting up a vSphere Test Environment
 **NOTE:** The samples are intended to be run against a freshly installed **non-Production** vSphere setup as the samples may make changes to the test environment and in some cases can destroy items when needed.
