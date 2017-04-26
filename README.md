@@ -134,9 +134,9 @@ The following information should be included when possible. Inclusion of informa
 
 ### Code Style
 
-Please conform to oracle java coding standards.
-    http://www.oracle.com/technetwork/articles/javase/codeconvtoc-136057.html
-
+Please conform to microsoft design guidelines.
+    https://msdn.microsoft.com/en-us/library/ms229042.aspx
+    
 ## Resource Maintenance
 ### Maintenance Ownership
 Ownership of any and all submitted samples are maintained by the submitter.
