@@ -4,7 +4,7 @@
 - [Supported vCenter Releases](#supported-vcenter-releases)
 - [Table of Contents](#table-of-contents)
 - [Quick Start Guide](#quick-start-guide)
-  - [Setting up build environment](#setting-up-maven)
+  - [Setting up build environment](#setting-up-build-environment)
   - [Setting up a vSphere Test Environment](#setting-up-a-vsphere-test-environment)
   - [Building the Samples](#building-the-samples)
   - [Running the Samples](#running-the-samples)
@@ -43,8 +43,9 @@ The SDK samples can be built either through command line or Visual Studio
 1. Ensure that .NET Framework 4.5 is installed on the system
 2. Download nuget.exe from https://dist.nuget.org/index.html. (required only if building via command line)
 3. Update PATH environment variable to include the .NET Framework directory and the directory where nuget.exe resides.
-
-   `SET PATH=%PATH%;"C:\Windows\Microsoft.NET\Framework64\v4.0.30319";"C:\Windows\Microsoft.NET\Framework\v4.0.30319";\<path to nuget.exe directory\>`
+```` bash
+SET PATH=%PATH%;"C:\Windows\Microsoft.NET\Framework64\v4.0.30319";"C:\Windows\Microsoft.NET\Framework\v4.0.30319";\<path to nuget.exe directory\>
+````
 
 ### Setting up a vSphere Test Environment
 **NOTE:** The samples are intended to be run against a freshly installed **non-Production** vSphere setup as the samples may make changes to the test environment and in some cases can destroy items when needed.
@@ -59,10 +60,11 @@ Apart from the above, each individual sample may require additional setup. Pleas
 ### Building the Samples
 #### Using CLI
 In the root directory of your folder after cloning the repository, run the below commands -
+````bash
+nuget restore vSphere-Samples.sln
 
-`nuget restore vSphere-Samples.sln`
-
-`msbuild vSphere-Samples.sln /t:Build /p:Configuration=Release`
+msbuild vSphere-Samples.sln /t:Build /p:Configuration=Release
+````
 
 #### Using Visual Studio (2015 or higher)
 1. Open the vSphere-Samples.sln file using Visual Studio
