@@ -42,7 +42,8 @@ This document will walk you through getting up and running with the .NET SDK Sam
 The SDK samples can be built either through command line or Visual Studio 
 1. Ensure that .NET Framework 4.5 is installed on the system
 2. Download nuget.exe (v3.5.0 or higher) from https://www.nuget.org/. (Note: This is required only if building via command line)
-3. Update PATH environment variable to include the .NET Framework directory and the directory where nuget.exe resides.
+3. Install Microsoft Visual Studio 2015 or higher. 
+4. Update PATH environment variable to include the .NET Framework directory and the directory where nuget.exe resides.
 ```` bash
 SET PATH=%PATH%;"C:\Windows\Microsoft.NET\Framework64\v4.0.30319";"C:\Windows\Microsoft.NET\Framework\v4.0.30319";\<path to nuget.exe directory\>
 ````
