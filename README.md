@@ -59,10 +59,18 @@ Apart from the above, each individual sample may require additional setup. Pleas
 
 ### Running the Samples
 * Right click the sample you want to run and select "Set as Startup Project".
-* Run the sample without any parameters to display usage information for the sample. To run the sample without parameters, press "Ctrl + F5" or select "Start Without Debugging" from the "Debug" menu.
+
+![Usage Info](screenshots/set-startup-project.jpg?raw=true)
+
+* To run the sample press "Ctrl + F5" or click "Start without Debugging" from the "Debug" menu.
+
+![Usage Info](screenshots/run-sample.jpg?raw=true)
+
+* If no parameters are specified, the sample usage info is displayed on the console.
 
 ![Usage Info](screenshots/usage-info.jpg?raw=true)
-* To run a sample by specifying all the required parameters, right click on the sample project and navigate to the "Debug" tab. Under "Start Options" section, specify the parameters required by the sample as mentioned in the sample usage.
+
+* To specify all the required parameters for running the sample, right click on the sample project and navigate to the "Debug" tab. Under the "Start Options" section, specify the parameters required by the sample as mentioned in the sample usage.
 
 ![Sample Parameters](screenshots/sample-parameters.jpg?raw=true)
 
