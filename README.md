@@ -52,13 +52,19 @@ To run the samples a vSphere test environment is required with the following min
 Apart from the above, each individual sample may require additional setup. Please refer to the sample parameters for more information on that.
 
 ### Building the Samples
-1. Open the vSphere-Samples.sln file using Visual Studio 2015 or higher
-2. Right-click on the solution in Solution Explorer and select "Build Solution"
+* Open the vSphere-Samples.sln file using Visual Studio 2015 or higher
+* Right-click on the solution in Solution Explorer and select "Build Solution"
+
+![Build Solution](screenshots/build-solution.png?raw=true)
 
 ### Running the Samples
-1. Right click the sample you want to run and select "Set as Startup Project".
-2. Run the sample without any parameters to display usage information for the sample. To run the sample without parameters, press "Ctrl + F5" or select "Start Without Debugging" from the "Debug" menu.
-3. To run a sample by specifying all the required parameters, right click on the sample project and navigate to the "Debug" tab. Under "Start Options", specify the parameters required by the sample as mentioned in the sample usage.
+* Right click the sample you want to run and select "Set as Startup Project".
+* Run the sample without any parameters to display usage information for the sample. To run the sample without parameters, press "Ctrl + F5" or select "Start Without Debugging" from the "Debug" menu.
+
+![Usage Info](screenshots/usage-info.png?raw=true)
+* To run a sample by specifying all the required parameters, right click on the sample project and navigate to the "Debug" tab. Under "Start Options" section, specify the parameters required by the sample as mentioned in the sample usage.
+
+![Sample Parameters](screenshots/sample-parameters.png?raw=true)
 
 ## API Documentation
 The API documentation can be downloaded from [here](doc/client.zip).

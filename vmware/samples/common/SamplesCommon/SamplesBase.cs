@@ -181,7 +181,6 @@ namespace vmware.samples.common
                 {
                     Cleanup();
                 }
-                Console.ReadLine();
             }
         }
     }
