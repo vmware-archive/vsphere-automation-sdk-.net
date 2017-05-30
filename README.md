@@ -39,14 +39,7 @@ This document will walk you through getting up and running with the .NET SDK Sam
 2. Setting up a vSphere test environment
 
 ### Setting up build environment
-The SDK samples can be built either through command line or Visual Studio 
-1. Ensure that .NET Framework 4.5 is installed on the system
-2. Download nuget.exe (v3.5.0 or higher) from https://www.nuget.org/. (Note: This is required only if building via command line)
-3. Install Microsoft Visual Studio 2015 or higher. 
-4. Update PATH environment variable to include the .NET Framework directory and the directory where nuget.exe resides.
-```` bash
-SET PATH=%PATH%;"C:\Windows\Microsoft.NET\Framework64\v4.0.30319";"C:\Windows\Microsoft.NET\Framework\v4.0.30319";\<path to nuget.exe directory\>
-````
+To build and run the samples, install Microsoft Visual Studio 2015 or higher. 
 
 ### Setting up a vSphere Test Environment
 **NOTE:** The samples are intended to be run against a freshly installed **non-Production** vSphere setup as the samples may make changes to the test environment and in some cases can destroy items when needed.
@@ -59,44 +52,13 @@ To run the samples a vSphere test environment is required with the following min
 Apart from the above, each individual sample may require additional setup. Please refer to the sample parameters for more information on that.
 
 ### Building the Samples
-#### Using CLI
-In the root directory of your folder after cloning the repository, run the below commands -
-````bash
-nuget restore vSphere-Samples.sln
-
-msbuild vSphere-Samples.sln /t:Build /p:Configuration=Release
-````
-
-#### Using Visual Studio (2015 or higher)
-1. Open the vSphere-Samples.sln file using Visual Studio
+1. Open the vSphere-Samples.sln file using Visual Studio 2015 or higher
 2. Right-click on the solution in Solution Explorer and select "Build Solution"
 
 ### Running the Samples
-1. Navigate to the bin\ directory where the sample exe resides. 
-2. Run the sample without any parameters to display usage information for the sample
-````bash
-D:\vsphere-automation-sdk-.net\vmware\samples\vcenter\vm\list\ListVMs\bin\Release>ListVMs.exe
-ListVMs [options]
-
-  --server                      Required. Hostname of vCenter Server
-  --username                    Required. Username to login to vCenter Server
-  --password                    Required. Password to login to vCenter Server
-  --cleardata                   Specify this option to undo all persistent
-                                results of running the sample
-  --skip-server-verification    (Default: False) Optional: Specify this option
-                                if you do not want to perform SSL certificate
-                                verification.
-                                NOTE: Circumventing SSL trust
-                                in this  manner is unsafe and should not be
-                                used with production code. This is ONLY FOR THE
-                                PURPOSE OF DEVELOPMENT ENVIRONMENT.
-  --help                        Display this help screen.
-  ````
-
-Use a command like the following to run a sample by specifying all the required parameters:
-```` bash
-D:\vsphere-automation-sdk-.net\vmware\samples\vcenter\vm\list\ListVMs\bin\Release>ListVMs.exe --server servername --username administrator@vsphere.local --password password --skip-server-verification
-````
+1. Right click the sample you want to run and select "Set as Startup Project".
+2. Run the sample without any parameters to display usage information for the sample. To run the sample without parameters, press "Ctrl + F5" or select "Start Without Debugging" from the "Debug" menu.
+3. To run a sample by specifying all the required parameters, right click on the sample project and navigate to the "Debug" tab. Under "Start Options", specify the parameters required by the sample as mentioned in the sample usage.
 
 ## API Documentation
 The API documentation can be downloaded from [here](doc/client.zip).
