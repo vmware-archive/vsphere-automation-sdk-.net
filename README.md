@@ -70,7 +70,7 @@ Apart from the above, each individual sample may require additional setup. Pleas
 
 ![Usage Info](screenshots/usage-info.jpg?raw=true)
 
-* To specify all the required parameters for running the sample, right click on the sample project and navigate to the "Debug" tab. Under the "Start Options" section, specify the parameters required by the sample as mentioned in the sample usage.
+* To specify all the required parameters for running the sample, right click on the sample project select "Properties". Navigate to the "Debug" tab. Under the "Start Options" section, specify the parameters required by the sample as mentioned in the sample usage.
 
 ![Sample Parameters](screenshots/sample-parameters.jpg?raw=true)
 
