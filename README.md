@@ -29,8 +29,9 @@ This document describes the vSphere Automation .NET SDK samples that use the vSp
 .NET client library. The samples have been developed to work with .NET Framework 4.5.
 
 ## Supported vCenter Releases:
-vCenter 6.0 and 6.5. 
-Certain APIs and samples that are introduced in 6.5 release, such as vCenter, Virtual Machine and Appliance Management. 
+vCenter 6.0 and 6.5 and vCenter 6.6.1 for VMware Cloud 1.1.
+
+Please refer to the notes in each sample for detailed compatibility information.
 
 ## Quick Start Guide
 This document will walk you through getting up and running with the .NET SDK Samples. Prior to running the samples you will need to setup a vCenter test environment and install NuGet CLI. The following steps will take you through this process.
@@ -75,7 +76,7 @@ Apart from the above, each individual sample may require additional setup. Pleas
 ![Sample Parameters](screenshots/sample-parameters.jpg?raw=true)
 
 ## API Documentation
-The API documentation can be downloaded from [here](doc/client.zip).
+The API documentation can be downloaded from [here](doc/docs.zip).
 
 Online version of the API documentation can be found [here](https://code.vmware.com/web/dp/doc/preview?id=4647).
 

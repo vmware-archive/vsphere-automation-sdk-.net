@@ -68,12 +68,11 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="vapi-client-bindings-6.5.0, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\packages\vapi-client-bindings-6.5.0.dll</HintPath>
+    <Reference Include="vapi-client-bindings">
+      <HintPath>..\..\..\..\..\..\packages\vapi-client-bindings.dll</HintPath>
     </Reference>
-    <Reference Include="vapi-runtime-2.5.0">
-      <HintPath>..\..\..\..\..\..\packages\vapi-runtime-2.5.0.dll</HintPath>
+    <Reference Include="vapi-runtime">
+      <HintPath>..\..\..\..\..\..\packages\vapi-runtime.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
