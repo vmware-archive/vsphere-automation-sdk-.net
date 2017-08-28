@@ -41,17 +41,17 @@
     <Reference Include="System.IdentityModel" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.XML" />
-    <Reference Include="vapi-client-bindings-6.5.0">
-      <HintPath>..\..\..\..\packages\vapi-client-bindings-6.5.0.dll</HintPath>
+    <Reference Include="vapi-client-bindings">
+      <HintPath>..\..\..\..\packages\vapi-client-bindings.dll</HintPath>
     </Reference>
-    <Reference Include="vapi-runtime-2.5.0">
-      <HintPath>..\..\..\..\packages\vapi-runtime-2.5.0.dll</HintPath>
+    <Reference Include="vapi-runtime">
+      <HintPath>..\..\..\..\packages\vapi-runtime.dll</HintPath>
     </Reference>
     <Reference Include="Vim25Service">
       <HintPath>..\..\..\..\packages\Vim25Service.dll</HintPath>
     </Reference>
-    <Reference Include="vsphereautomation-lookupservice-6.5.0">
-      <HintPath>..\..\..\..\packages\vsphereautomation-lookupservice-6.5.0.dll</HintPath>
+    <Reference Include="vsphereautomation-lookupservice">
+      <HintPath>..\..\..\..\packages\vsphereautomation-lookupservice.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
