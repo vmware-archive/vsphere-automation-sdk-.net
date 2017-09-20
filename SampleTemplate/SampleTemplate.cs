@@ -15,15 +15,9 @@ namespace vmware.samples.vcenter.sample_template
     using common.authentication;
     using System;
     using common;
-    
+
     class SampleTemplate : SamplesBase
     {
-        public override void Cleanup()
-        {
-            Console.WriteLine("Logging out...");
-            VapiAuthHelper.Logout();
-        }
-
         public override void Run()
         {
             // Login
@@ -34,9 +28,18 @@ namespace vmware.samples.vcenter.sample_template
                     Server, UserName, Password);
             //TODO Add customer's custom code
         }
+
+        public override void Cleanup()
+        {
+            Console.WriteLine("Disconnecting...");
+            VapiAuthHelper.Logout();
+            Console.WriteLine("Successfully disconnected");
+        }
         public static void Main(string[] args)
         {
             new SampleTemplate().Execute(args);
+            Console.WriteLine("Press <Enter> to exit...");
+            Console.Read();
         }
     }
 }

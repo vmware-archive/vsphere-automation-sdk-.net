@@ -55,7 +55,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ListVMs", "vmware\samples\v
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sample_template", "sample_template", "{3C2BC9B8-BDE4-4D53-8B44-FD1A4CE0F68B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleTemplate", "SampleTemplate\SampleTemplate.csproj", "{D193250F-336B-4B1D-B9D5-95A4DE4816F9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SDK-Automation-SampleTemplate", "SampleTemplate\SDK-Automation-SampleTemplate.csproj", "{D193250F-336B-4B1D-B9D5-95A4DE4816F9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
