@@ -49,7 +49,6 @@ This document will walk you through getting up and running with the .NET SDK Sam
 ![New Project](screenshots/newProject.jpg?raw=true)
 4. Then right  click on the console project on the solution explorer and on the debug options add the "Command line arguments"
                    --server serverIP --username username --password password --skip-server-verification --cleardata
-
 ![Sol Explorer](screenshots/solExplorer.jpg?raw=true)
 
 5. Save
