@@ -50,7 +50,7 @@ To run the samples a vSphere test environment is required with the following min
 * 2 ESX hosts
 * 1 NFS Datastore with at least 3GB of free capacity
 
-Apart from the above, each individual sample may require additional setup. Please refer to the sample parameters for more information on that.
+Apart from the above, each individual sample may require additional setup. Please refer to the sample parameters for more information on that. 
 
 ### Building the Samples
 * Open the vSphere-Samples.sln file using Visual Studio 2015 or higher
