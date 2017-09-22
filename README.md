@@ -39,6 +39,29 @@ This document will walk you through getting up and running with the .NET SDK Sam
 1. Setting up build environment
 2. Setting up a vSphere test environment
 
+### How to install VMware Project Template in Visual Studio for .NET Automation SDK.
+
+To import "VMware Project Template", install Microsoft Visual Studio 2015 or higher. 
+  * Double click on the "Vmware-SDK-Automation-Sample-Template.vsix" located in "/vsphere-automation-sdk-.net/Project Template/" folder.
+  * Click install on the wizard pop up window.
+
+### Building and running the Project Template 
+
+1. Open Visual Studio
+2.  In the menu select File --> New --> Project...
+3. Select the template as the image below shows
+![Build Solution](screenshots/newProject.jpg?raw=true)
+4. Then right  click on the console project on the solution explorer and on the debug options add the "Command line arguments"
+                   --server serverIP --username username --password password --skip-server-verification --cleardata
+
+![Build Solution](screenshots/solExplorer.jpg?raw=true)
+
+5. Save
+6. Press F5 to debug, or click on Start in Visual Studio
+7. Then it should show the output like the image below
+
+![Build Solution](screenshots/output.jpg?raw=true)
+
 ### Setting up build environment
 To build and run the samples, install Microsoft Visual Studio 2015 or higher. 
 
