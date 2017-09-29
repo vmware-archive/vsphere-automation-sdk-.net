@@ -8,7 +8,8 @@
   - [Setting up a vSphere Test Environment](#setting-up-a-vsphere-test-environment)
   - [Building the Samples](#building-the-samples)
   - [Running the Samples](#running-the-samples)
-- [API Documentation](#api-documentation)
+  - [Adding a new sample using a template](#adding-sample-using-template)
+  - [API Documentation](#api-documentation)
 - [Submitting samples](#submitting-samples)
   - [Required Information](#required-information)
   - [Suggested Information](#suggested-information)
@@ -38,24 +39,6 @@ This document will walk you through getting up and running with the .NET SDK Sam
 
 1. Setting up build environment
 2. Setting up a vSphere test environment
-
-### Importing, building and running the Project Template 
-
-* To import the VMware Project Template, install the vsix file by double click to the file "Vmware-SDK-Automation-Sample-Template.vsix" located in "vsphere-automation-sdk-.net\Project Template". 
-
-1. Open Visual Studio
-2.  In the menu select File --> New --> Project...
-3. Select the template as the image below shows
-![New Project](screenshots/newProject.jpg?raw=true)
-4. Then right  click on the console project on the solution explorer and on the debug options add the "Command line arguments"
-                   --server serverIP --username username --password password --skip-server-verification --cleardata
-![Sol Explorer](screenshots/solExplorer.jpg?raw=true)
-
-5. Save
-6. Press F5 to debug, or click on Start in Visual Studio
-7. Then it should show the output like the image below
-
-![Output](screenshots/output.jpg?raw=true)
 
 ### Setting up build environment
 To build and run the samples, install Microsoft Visual Studio 2015 or higher. 
@@ -92,6 +75,15 @@ Apart from the above, each individual sample may require additional setup. Pleas
 * To specify all the required parameters for running the sample, right click on the sample project select "Properties". Navigate to the "Debug" tab. Under the "Start Options" section, specify the parameters required by the sample as mentioned in the sample usage.
 
 ![Sample Parameters](screenshots/sample-parameters.jpg?raw=true)
+
+### Adding a new sample using a template
+
+* To import the VMware Project Template, install the vsix file by double click to the file "Vmware-SDK-Automation-Sample-Template.vsix" located in "vsphere-automation-sdk-.net\Project Template". 
+
+1. Open Visual Studio
+2.  In the menu select File --> New --> Project...
+3. Select the template as the image below shows
+![New Project](screenshots/newProject.jpg?raw=true)
 
 ## API Documentation
 The API documentation can be downloaded from [here](doc/docs.zip).
