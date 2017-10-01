@@ -8,6 +8,7 @@
   - [Setting up a vSphere Test Environment](#setting-up-a-vsphere-test-environment)
   - [Building the Samples](#building-the-samples)
   - [Running the Samples](#running-the-samples)
+  - [Adding a new sample using a template](#adding-a-new-sample-using-a-template)
 - [API Documentation](#api-documentation)
 - [Submitting samples](#submitting-samples)
   - [Required Information](#required-information)
@@ -50,7 +51,7 @@ To run the samples a vSphere test environment is required with the following min
 * 2 ESX hosts
 * 1 NFS Datastore with at least 3GB of free capacity
 
-Apart from the above, each individual sample may require additional setup. Please refer to the sample parameters for more information on that.
+Apart from the above, each individual sample may require additional setup. Please refer to the sample parameters for more information on that. 
 
 ### Building the Samples
 * Open the vSphere-Samples.sln file using Visual Studio 2015 or higher
@@ -74,6 +75,15 @@ Apart from the above, each individual sample may require additional setup. Pleas
 * To specify all the required parameters for running the sample, right click on the sample project select "Properties". Navigate to the "Debug" tab. Under the "Start Options" section, specify the parameters required by the sample as mentioned in the sample usage.
 
 ![Sample Parameters](screenshots/sample-parameters.jpg?raw=true)
+
+### Adding a new sample using a template
+
+* To import the VMware Project Template, install the vsix file by double click to the file "Vmware-SDK-Automation-Sample-Template.vsix" located in "vsphere-automation-sdk-.net\Project Template". 
+
+1. Open Visual Studio
+2.  In the menu select File --> New --> Project...
+3. Select the template as the image below shows
+![New Project](screenshots/newProject.jpg?raw=true)
 
 ## API Documentation
 The API documentation can be downloaded from [here](doc/docs.zip).
