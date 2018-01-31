@@ -82,18 +82,18 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ListVMsForm.aspx" />
+    <Content Include="Default.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ListVMsForm.aspx.cs">
-      <DependentUpon>ListVMsForm.aspx</DependentUpon>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ListVMsForm.aspx.designer.cs">
-      <DependentUpon>ListVMsForm.aspx</DependentUpon>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="ListVMsWeb.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
