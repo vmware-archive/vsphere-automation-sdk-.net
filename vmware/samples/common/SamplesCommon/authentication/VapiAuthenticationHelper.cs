@@ -14,6 +14,7 @@ namespace vmware.samples.common.authentication
 {
     using System;
     using System.Security.Cryptography;
+    using System.Threading.Tasks;
     using vmware.cis;
     using vmware.vapi.bindings;
     using vmware.vapi.core;
@@ -68,6 +69,63 @@ namespace vmware.samples.common.authentication
 
             // Login and create a session
             char[] sessionId = session.Create();
+
+            /*
+             * Initialize a session security context from the generated
+             * session id
+             */
+            SessionSecurityContext sessionSecurityContext =
+                new SessionSecurityContext(sessionId);
+
+            // Update the stub configuration to use the session id
+            stubConfig.SetSecurityContext(sessionSecurityContext);
+
+            /*
+             * Create a stub for the session service using the authenticated
+             * session
+             */
+            this.sessionSvc =
+                StubFactory.CreateStub<Session>(stubConfig);
+            return stubConfig;
+        }
+
+        /// <summary>
+        /// Creates a session with the server using username and password
+        /// </summary>
+        /// <param name="server">hostname of the server to login</param>
+        /// <param name="username">username for login</param>
+        /// <param name="password">password for login</param>
+        /// <returns>the stub configuration configured with an authenticated
+        ///          session
+        /// </returns>
+        public async Task<StubConfiguration> LoginByUsernameAndPasswordAsync(
+            string server, string username, string password)
+        {
+            if (this.sessionSvc != null)
+            {
+                throw new Exception("Session already created");
+            }
+
+            StubFactory = CreateApiStubFactory(server);
+
+            // Create a security context for username/password authentication
+            ExecutionContext.SecurityContext securityContext =
+                new UserPassSecurityContext(
+                    username, password.ToCharArray());
+
+            /*
+             * Create a stub configuration with username/password security
+             * context
+             */
+            StubConfiguration stubConfig = new StubConfiguration();
+            stubConfig.SetSecurityContext(securityContext);
+
+            // Create a session stub using the stub configuration.
+            Session session =
+                    StubFactory.CreateStub<Session>(stubConfig);
+
+            // Login and create a session
+            char[] sessionId = await session.CreateAsync();
 
             /*
              * Initialize a session security context from the generated

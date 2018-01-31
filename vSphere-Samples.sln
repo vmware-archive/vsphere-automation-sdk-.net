@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2024
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sso", "sso", "{FE859435-0323-4E4E-BF54-BFA14E2FE7FD}"
 EndProject
@@ -52,6 +52,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "list", "list", "{FD21059E-C609-46C6-AA36-69D86F2BB9A2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ListVMs", "vmware\samples\vcenter\vm\list\ListVMs\ListVMs.csproj", "{8926A553-ECF9-45A5-B818-8472A52E14F1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ListVMsWebApp", "vmware\samples\vcenter\vm\list\ListVMsWebApp\ListVMsWebApp.csproj", "{E8685813-9284-45E0-9217-10087FE38EB0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -189,6 +191,14 @@ Global
 		{8926A553-ECF9-45A5-B818-8472A52E14F1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8926A553-ECF9-45A5-B818-8472A52E14F1}.Release|x86.ActiveCfg = Release|Any CPU
 		{8926A553-ECF9-45A5-B818-8472A52E14F1}.Release|x86.Build.0 = Release|Any CPU
+		{E8685813-9284-45E0-9217-10087FE38EB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8685813-9284-45E0-9217-10087FE38EB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8685813-9284-45E0-9217-10087FE38EB0}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{E8685813-9284-45E0-9217-10087FE38EB0}.Debug|x86.Build.0 = Debug|Any CPU
+		{E8685813-9284-45E0-9217-10087FE38EB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8685813-9284-45E0-9217-10087FE38EB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8685813-9284-45E0-9217-10087FE38EB0}.Release|x86.ActiveCfg = Release|Any CPU
+		{E8685813-9284-45E0-9217-10087FE38EB0}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -215,5 +225,9 @@ Global
 		{1ACD25A4-62EA-4B6F-A1DF-6F1A531BBF4B} = {0BEAEC1A-27D8-4A79-BAAA-989C246AF622}
 		{FD21059E-C609-46C6-AA36-69D86F2BB9A2} = {E1D6C7B0-3DE4-4395-B8C2-37997131169D}
 		{8926A553-ECF9-45A5-B818-8472A52E14F1} = {FD21059E-C609-46C6-AA36-69D86F2BB9A2}
+		{E8685813-9284-45E0-9217-10087FE38EB0} = {FD21059E-C609-46C6-AA36-69D86F2BB9A2}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5ECBC77D-6EDE-412C-AC7E-8EB7A0BD677D}
 	EndGlobalSection
 EndGlobal
