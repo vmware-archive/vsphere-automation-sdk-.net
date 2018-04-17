@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!--
-   Copyright 2005-2016 VMware, Inc.  All rights reserved.
+   Copyright 2005-2018 VMware, Inc.  All rights reserved.
 -->
 <definitions targetNamespace="urn:vim25Service"
    xmlns="http://schemas.xmlsoap.org/wsdl/"

@@ -56,14 +56,12 @@
     <Reference Include="vapi-runtime">
       <HintPath>..\..\..\..\packages\vapi-runtime.dll</HintPath>
     </Reference>
+    <Reference Include="Vim25Service, Version=6.7.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\packages\Vim25Service.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\..\vcenter\helpers\ClusterHelper.cs">
-      <Link>ClusterHelper.cs</Link>
-    </Compile>
-    <Compile Include="..\..\vcenter\helpers\DatacenterHelper.cs">
-      <Link>DatacenterHelper.cs</Link>
-    </Compile>
     <Compile Include="TaggingWorkflow.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!--
-   Copyright 2005-2016 VMware, Inc.  All rights reserved.
+   Copyright 2005-2018 VMware, Inc.  All rights reserved.
 -->
 <schema
    targetNamespace="urn:vim25"
@@ -237,6 +237,11 @@
    <complexType name="ArrayOfAnyURI">
       <sequence>
          <element name="anyURI" type="xsd:anyURI" minOccurs="0" maxOccurs="unbounded" />
+      </sequence>
+   </complexType>
+   <complexType name="ArrayOfBase64Binary">
+      <sequence>
+         <element name="base64Binary" type="xsd:base64Binary" minOccurs="0" maxOccurs="unbounded" />
       </sequence>
    </complexType>
    <complexType name="ArrayOfManagedObjectReference">

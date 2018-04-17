@@ -15,6 +15,8 @@ namespace vmware.samples.sso
     using CommandLine;
     using System;
     using System.Collections.Generic;
+    using System.Linq;
+    using vmware.cis.tagging;
     using vmware.samples.common;
     using vmware.samples.common.authentication;
     using vmware.vapi.bindings;
@@ -64,15 +66,23 @@ namespace vmware.samples.sso
 
             Console.WriteLine("\nStep 3: Perform certain tasks using the vAPI "
                 + "services.");
-            Datacenter datacenterService =
-                vapiAuthHelper.StubFactory.CreateStub<Datacenter>(
-                    sessionStubConfig);
-            List<DatacenterTypes.Summary> dcList =
-                datacenterService.List(new DatacenterTypes.FilterSpec());
-            Console.WriteLine("\nList of datacenters on the vcenter server:");
-            foreach (DatacenterTypes.Summary dcSummary in dcList)
+            Console.WriteLine("\nListing all tags on the vCenter Server ...");
+            Tag taggingService =
+                vapiAuthHelper.StubFactory.CreateStub<Tag>(sessionStubConfig);
+            List<string> tagList = taggingService.List();
+            if (!tagList.Any())
             {
-                Console.WriteLine(dcSummary);
+                Console.WriteLine("\nNo tags found !");
+            }
+            else
+            {
+                Console.WriteLine("\nTag Name\tTag Description");
+                foreach (string tagId in tagList)
+                {
+                    Console.WriteLine(
+                        taggingService.Get(tagId).GetName()
+                        + "\t" + taggingService.Get(tagId).GetDescription());
+                }
             }
             vapiAuthHelper.Logout();
         }

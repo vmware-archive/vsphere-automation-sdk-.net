@@ -30,7 +30,7 @@ This document describes the vSphere Automation .NET SDK samples that use the vSp
 .NET client library. The samples have been developed to work with .NET Framework 4.5.
 
 ## Supported vCenter Releases:
-vCenter 6.0 and 6.5 and vCenter 6.6.1 for VMware Cloud 1.1.
+vCenter 6.0, 6.5, 6.7 and vCenter 6.6.3 for VMware Cloud on AWS 1.3.
 
 Please refer to the notes in each sample for detailed compatibility information.
 
@@ -78,7 +78,7 @@ Apart from the above, each individual sample may require additional setup. Pleas
 
 ### Adding a new sample using a template
 
-* To import the VMware Project Template, install the vsix file by double click to the file "Vmware-SDK-Automation-Sample-Template.vsix" located in "vsphere-automation-sdk-.net\Project Template". 
+* To import the VMware Project Template, copy the zip file located in "vsphere-automation-sdk-.net\Project Template" to "C:\Users\<username>\Documents\Visual Studio 2017\Templates\ProjectTemplates\Visual C#". 
 
 1. Open Visual Studio
 2.  In the menu select File --> New --> Project...

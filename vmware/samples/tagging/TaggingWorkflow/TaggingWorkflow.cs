@@ -17,9 +17,9 @@ namespace vmware.samples.tagging.workflow
     using System;
     using System.Collections.Generic;
     using vapi.std;
-    using vcenter.helpers;
     using vmware.cis.tagging;
     using vmware.samples.common;
+    using vmware.vim25;
 
     /// <summary>
     /// Description: Demonstrates CRUD operations on a sample tag.
@@ -28,7 +28,7 @@ namespace vmware.samples.tagging.workflow
     /// </summary>
     public class TaggingWorkflow : SamplesBase
     {
-        Tag tagService;
+        cis.tagging.Tag tagService;
         Category categoryService;
         TagAssociation tagAssociation;
         string tagId, categoryId;
@@ -42,25 +42,24 @@ namespace vmware.samples.tagging.workflow
             Required = true)]
         public string ClusterName { get; set; }
 
-        [Option(
-            "datacenter",
-            HelpText = "Name of the Datacenter on which to create tags.",
-            Required = true)]
-        public string DatacenterName { get; set; }
         public override void Run()
         {
             // Login
             VapiAuthHelper = new VapiAuthenticationHelper();
+            VimAuthHelper = new VimAuthenticationHelper();
             SessionStubConfiguration =
                 VapiAuthHelper.LoginByUsernameAndPassword(
                     Server, UserName, Password);
+            VimAuthHelper.LoginByUsernameAndPassword(
+                Server, UserName, Password);
 
             // Get the cluster
+            ManagedObjectReference clusterMoRef =
+                VimHelper.GetCluster(ClusterName, VimAuthHelper);
             this.clusterId = new DynamicID();
-            this.clusterId.SetType("ClusterComputeResource");
-            this.clusterId.SetId(ClusterHelper.GetCluster(
-                VapiAuthHelper.StubFactory, SessionStubConfiguration,
-                DatacenterName, ClusterName));
+            this.clusterId.SetType((string)clusterMoRef.type);
+            this.clusterId.SetId((string)clusterMoRef.Value);
+
 
             this.tagName = RandomIdGenerator.GetRandomString("Tag-");
             var tagDesc = "Sample tag";
@@ -68,7 +67,7 @@ namespace vmware.samples.tagging.workflow
             var categoryDesc = "Sample category";
 
             // create services
-            this.tagService = VapiAuthHelper.StubFactory.CreateStub<Tag>(
+            this.tagService = VapiAuthHelper.StubFactory.CreateStub<cis.tagging.Tag>(
                 SessionStubConfiguration);
             this.categoryService =
                 VapiAuthHelper.StubFactory.CreateStub<Category>(
@@ -169,7 +168,7 @@ namespace vmware.samples.tagging.workflow
         }
 
         private string CreateTag(
-            Tag taggingService,
+            cis.tagging.Tag taggingService,
             string name,
             string description,
             string categoryId)
@@ -182,7 +181,7 @@ namespace vmware.samples.tagging.workflow
         }
 
         private void UpdateTagDesc(
-            Tag taggingService,
+            cis.tagging.Tag taggingService,
             string tagId,
             string description)
         {

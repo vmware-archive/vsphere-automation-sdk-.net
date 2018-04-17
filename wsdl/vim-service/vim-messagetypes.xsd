@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!--
-   Copyright 2005-2016 VMware, Inc.  All rights reserved.
+   Copyright 2005-2018 VMware, Inc.  All rights reserved.
 -->
 <schema
    targetNamespace="urn:vim25"
@@ -1085,6 +1085,12 @@
          <element name="_this" type="vim25:ManagedObjectReference" />
       </sequence>
    </complexType>
+   <complexType name="HttpNfcLeaseSetManifestChecksumTypeRequestType">
+      <sequence>
+         <element name="_this" type="vim25:ManagedObjectReference" />
+         <element name="deviceUrlsToChecksumTypes" type="vim25:KeyValue" minOccurs="0" maxOccurs="unbounded" />
+      </sequence>
+   </complexType>
    <complexType name="HttpNfcLeaseCompleteRequestType">
       <sequence>
          <element name="_this" type="vim25:ManagedObjectReference" />
@@ -1100,6 +1106,12 @@
       <sequence>
          <element name="_this" type="vim25:ManagedObjectReference" />
          <element name="percent" type="xsd:int" />
+      </sequence>
+   </complexType>
+   <complexType name="HttpNfcLeasePullFromUrlsRequestType">
+      <sequence>
+         <element name="_this" type="vim25:ManagedObjectReference" />
+         <element name="files" type="vim25:HttpNfcLeaseSourceFile" minOccurs="0" maxOccurs="unbounded" />
       </sequence>
    </complexType>
    <complexType name="InstallIoFilterRequestType">
@@ -1794,12 +1806,25 @@
          <element name="pod" type="vim25:ManagedObjectReference" />
       </sequence>
    </complexType>
+   <complexType name="RefreshStorageDrsRecommendationsForPodRequestType">
+      <sequence>
+         <element name="_this" type="vim25:ManagedObjectReference" />
+         <element name="pod" type="vim25:ManagedObjectReference" />
+      </sequence>
+   </complexType>
    <complexType name="ConfigureStorageDrsForPodRequestType">
       <sequence>
          <element name="_this" type="vim25:ManagedObjectReference" />
          <element name="pod" type="vim25:ManagedObjectReference" />
          <element name="spec" type="vim25:StorageDrsConfigSpec" />
          <element name="modify" type="xsd:boolean" />
+      </sequence>
+   </complexType>
+   <complexType name="ValidateStoragePodConfigRequestType">
+      <sequence>
+         <element name="_this" type="vim25:ManagedObjectReference" />
+         <element name="pod" type="vim25:ManagedObjectReference" />
+         <element name="spec" type="vim25:StorageDrsConfigSpec" />
       </sequence>
    </complexType>
    <complexType name="RecommendDatastoresRequestType">
@@ -2189,6 +2214,12 @@
          <element name="spec" type="vim25:VirtualMachineCloneSpec" />
       </sequence>
    </complexType>
+   <complexType name="InstantCloneRequestType">
+      <sequence>
+         <element name="_this" type="vim25:ManagedObjectReference" />
+         <element name="spec" type="vim25:VirtualMachineInstantCloneSpec" />
+      </sequence>
+   </complexType>
    <complexType name="ExportVmRequestType">
       <sequence>
          <element name="_this" type="vim25:ManagedObjectReference" />
@@ -2401,6 +2432,18 @@
          <element name="diskId" type="vim25:ID" />
       </sequence>
    </complexType>
+   <complexType name="ApplyEvcModeVMRequestType">
+      <sequence>
+         <element name="_this" type="vim25:ManagedObjectReference" />
+         <element name="mask" type="vim25:HostFeatureMask" minOccurs="0" maxOccurs="unbounded" />
+         <element name="completeMasks" type="xsd:boolean" minOccurs="0" />
+      </sequence>
+   </complexType>
+   <complexType name="CryptoUnlockRequestType">
+      <sequence>
+         <element name="_this" type="vim25:ManagedObjectReference" />
+      </sequence>
+   </complexType>
    <complexType name="PerformVsanUpgradePreflightCheckRequestType">
       <sequence>
          <element name="_this" type="vim25:ManagedObjectReference" />
@@ -2472,6 +2515,12 @@
          <element name="_this" type="vim25:ManagedObjectReference" />
          <element name="alarm" type="vim25:ManagedObjectReference" />
          <element name="entity" type="vim25:ManagedObjectReference" />
+      </sequence>
+   </complexType>
+   <complexType name="ClearTriggeredAlarmsRequestType">
+      <sequence>
+         <element name="_this" type="vim25:ManagedObjectReference" />
+         <element name="filter" type="vim25:AlarmFilterSpec" />
       </sequence>
    </complexType>
    <complexType name="ConfigureEvcModeRequestType">
@@ -2626,6 +2675,23 @@
       <sequence>
          <element name="_this" type="vim25:ManagedObjectReference" />
          <element name="limit" type="xsd:int" minOccurs="0" />
+      </sequence>
+   </complexType>
+   <complexType name="CryptoManagerHostPrepareRequestType">
+      <sequence>
+         <element name="_this" type="vim25:ManagedObjectReference" />
+      </sequence>
+   </complexType>
+   <complexType name="CryptoManagerHostEnableRequestType">
+      <sequence>
+         <element name="_this" type="vim25:ManagedObjectReference" />
+         <element name="initialKey" type="vim25:CryptoKeyPlain" />
+      </sequence>
+   </complexType>
+   <complexType name="ChangeKeyRequestType">
+      <sequence>
+         <element name="_this" type="vim25:ManagedObjectReference" />
+         <element name="newKey" type="vim25:CryptoKeyPlain" />
       </sequence>
    </complexType>
    <complexType name="RegisterKmipServerRequestType">
@@ -3521,6 +3587,23 @@
          <element name="_this" type="vim25:ManagedObjectReference" />
       </sequence>
    </complexType>
+   <complexType name="CreateNvdimmNamespaceRequestType">
+      <sequence>
+         <element name="_this" type="vim25:ManagedObjectReference" />
+         <element name="createSpec" type="vim25:NvdimmNamespaceCreateSpec" />
+      </sequence>
+   </complexType>
+   <complexType name="DeleteNvdimmNamespaceRequestType">
+      <sequence>
+         <element name="_this" type="vim25:ManagedObjectReference" />
+         <element name="deleteSpec" type="vim25:NvdimmNamespaceDeleteSpec" />
+      </sequence>
+   </complexType>
+   <complexType name="DeleteNvdimmBlockNamespacesRequestType">
+      <sequence>
+         <element name="_this" type="vim25:ManagedObjectReference" />
+      </sequence>
+   </complexType>
    <complexType name="CheckHostPatchRequestType">
       <sequence>
          <element name="_this" type="vim25:ManagedObjectReference" />
@@ -4067,6 +4150,13 @@
          <element name="unmapPriority" type="xsd:string" />
       </sequence>
    </complexType>
+   <complexType name="UpdateVmfsUnmapBandwidthRequestType">
+      <sequence>
+         <element name="_this" type="vim25:ManagedObjectReference" />
+         <element name="vmfsUuid" type="xsd:string" />
+         <element name="unmapBandwidthSpec" type="vim25:VmfsUnmapBandwidthSpec" />
+      </sequence>
+   </complexType>
    <complexType name="QueryVmfsConfigOptionRequestType">
       <sequence>
          <element name="_this" type="vim25:ManagedObjectReference" />
@@ -4396,6 +4486,11 @@
          <element name="config" type="vim25:ClusterProfileConfigSpec" />
       </sequence>
    </complexType>
+   <complexType name="HostProfileResetValidationStateRequestType">
+      <sequence>
+         <element name="_this" type="vim25:ManagedObjectReference" />
+      </sequence>
+   </complexType>
    <complexType name="UpdateReferenceHostRequestType">
       <sequence>
          <element name="_this" type="vim25:ManagedObjectReference" />
@@ -4566,6 +4661,29 @@
       <sequence>
          <element name="_this" type="vim25:ManagedObjectReference" />
          <element name="applyConfigSpecs" type="vim25:ApplyHostProfileConfigurationSpec" minOccurs="0" maxOccurs="unbounded" />
+      </sequence>
+   </complexType>
+   <complexType name="ValidateHostProfileCompositionRequestType">
+      <sequence>
+         <element name="_this" type="vim25:ManagedObjectReference" />
+         <element name="source" type="vim25:ManagedObjectReference" />
+         <element name="targets" type="vim25:ManagedObjectReference" minOccurs="0" maxOccurs="unbounded" />
+         <element name="toBeMerged" type="vim25:HostApplyProfile" minOccurs="0" />
+         <element name="toReplaceWith" type="vim25:HostApplyProfile" minOccurs="0" />
+         <element name="toBeDeleted" type="vim25:HostApplyProfile" minOccurs="0" />
+         <element name="enableStatusToBeCopied" type="vim25:HostApplyProfile" minOccurs="0" />
+         <element name="errorOnly" type="xsd:boolean" minOccurs="0" />
+      </sequence>
+   </complexType>
+   <complexType name="CompositeHostProfileRequestType">
+      <sequence>
+         <element name="_this" type="vim25:ManagedObjectReference" />
+         <element name="source" type="vim25:ManagedObjectReference" />
+         <element name="targets" type="vim25:ManagedObjectReference" minOccurs="0" maxOccurs="unbounded" />
+         <element name="toBeMerged" type="vim25:HostApplyProfile" minOccurs="0" />
+         <element name="toBeReplacedWith" type="vim25:HostApplyProfile" minOccurs="0" />
+         <element name="toBeDeleted" type="vim25:HostApplyProfile" minOccurs="0" />
+         <element name="enableStatusToBeCopied" type="vim25:HostApplyProfile" minOccurs="0" />
       </sequence>
    </complexType>
    <complexType name="RemoveScheduledTaskRequestType">
@@ -4770,6 +4888,25 @@
          <element name="testType" type="xsd:string" minOccurs="0" maxOccurs="unbounded" />
       </sequence>
    </complexType>
+   <complexType name="CheckVmConfigRequestType">
+      <sequence>
+         <element name="_this" type="vim25:ManagedObjectReference" />
+         <element name="spec" type="vim25:VirtualMachineConfigSpec" />
+         <element name="vm" type="vim25:ManagedObjectReference" minOccurs="0" />
+         <element name="host" type="vim25:ManagedObjectReference" minOccurs="0" />
+         <element name="pool" type="vim25:ManagedObjectReference" minOccurs="0" />
+         <element name="testType" type="xsd:string" minOccurs="0" maxOccurs="unbounded" />
+      </sequence>
+   </complexType>
+   <complexType name="CheckPowerOnRequestType">
+      <sequence>
+         <element name="_this" type="vim25:ManagedObjectReference" />
+         <element name="vm" type="vim25:ManagedObjectReference" />
+         <element name="host" type="vim25:ManagedObjectReference" minOccurs="0" />
+         <element name="pool" type="vim25:ManagedObjectReference" minOccurs="0" />
+         <element name="testType" type="xsd:string" minOccurs="0" maxOccurs="unbounded" />
+      </sequence>
+   </complexType>
    <complexType name="QueryVMotionCompatibilityExRequestType">
       <sequence>
          <element name="_this" type="vim25:ManagedObjectReference" />
@@ -4792,6 +4929,24 @@
          <element name="_this" type="vim25:ManagedObjectReference" />
          <element name="vm" type="vim25:ManagedObjectReference" />
          <element name="spec" type="vim25:VirtualMachineRelocateSpec" />
+         <element name="testType" type="xsd:string" minOccurs="0" maxOccurs="unbounded" />
+      </sequence>
+   </complexType>
+   <complexType name="CheckCloneRequestType">
+      <sequence>
+         <element name="_this" type="vim25:ManagedObjectReference" />
+         <element name="vm" type="vim25:ManagedObjectReference" />
+         <element name="folder" type="vim25:ManagedObjectReference" />
+         <element name="name" type="xsd:string" />
+         <element name="spec" type="vim25:VirtualMachineCloneSpec" />
+         <element name="testType" type="xsd:string" minOccurs="0" maxOccurs="unbounded" />
+      </sequence>
+   </complexType>
+   <complexType name="CheckInstantCloneRequestType">
+      <sequence>
+         <element name="_this" type="vim25:ManagedObjectReference" />
+         <element name="vm" type="vim25:ManagedObjectReference" />
+         <element name="spec" type="vim25:VirtualMachineInstantCloneSpec" />
          <element name="testType" type="xsd:string" minOccurs="0" maxOccurs="unbounded" />
       </sequence>
    </complexType>
@@ -5089,6 +5244,12 @@
          <element name="name" type="xsd:string" />
       </sequence>
    </complexType>
+   <complexType name="HostRetrieveVStorageInfrastructureObjectPolicyRequestType">
+      <sequence>
+         <element name="_this" type="vim25:ManagedObjectReference" />
+         <element name="datastore" type="vim25:ManagedObjectReference" />
+      </sequence>
+   </complexType>
    <complexType name="HostDeleteVStorageObjectRequestType">
       <sequence>
          <element name="_this" type="vim25:ManagedObjectReference" />
@@ -5132,6 +5293,22 @@
          <element name="spec" type="vim25:VslmRelocateSpec" />
       </sequence>
    </complexType>
+   <complexType name="HostSetVStorageObjectControlFlagsRequestType">
+      <sequence>
+         <element name="_this" type="vim25:ManagedObjectReference" />
+         <element name="id" type="vim25:ID" />
+         <element name="datastore" type="vim25:ManagedObjectReference" />
+         <element name="controlFlags" type="xsd:string" minOccurs="0" maxOccurs="unbounded" />
+      </sequence>
+   </complexType>
+   <complexType name="HostClearVStorageObjectControlFlagsRequestType">
+      <sequence>
+         <element name="_this" type="vim25:ManagedObjectReference" />
+         <element name="id" type="vim25:ID" />
+         <element name="datastore" type="vim25:ManagedObjectReference" />
+         <element name="controlFlags" type="xsd:string" minOccurs="0" maxOccurs="unbounded" />
+      </sequence>
+   </complexType>
    <complexType name="HostReconcileDatastoreInventoryRequestType">
       <sequence>
          <element name="_this" type="vim25:ManagedObjectReference" />
@@ -5142,6 +5319,49 @@
       <sequence>
          <element name="_this" type="vim25:ManagedObjectReference" />
          <element name="datastore" type="vim25:ManagedObjectReference" />
+      </sequence>
+   </complexType>
+   <complexType name="HostVStorageObjectCreateSnapshotRequestType">
+      <sequence>
+         <element name="_this" type="vim25:ManagedObjectReference" />
+         <element name="id" type="vim25:ID" />
+         <element name="datastore" type="vim25:ManagedObjectReference" />
+         <element name="description" type="xsd:string" />
+      </sequence>
+   </complexType>
+   <complexType name="HostVStorageObjectDeleteSnapshotRequestType">
+      <sequence>
+         <element name="_this" type="vim25:ManagedObjectReference" />
+         <element name="id" type="vim25:ID" />
+         <element name="datastore" type="vim25:ManagedObjectReference" />
+         <element name="snapshotId" type="vim25:ID" />
+      </sequence>
+   </complexType>
+   <complexType name="HostVStorageObjectRetrieveSnapshotInfoRequestType">
+      <sequence>
+         <element name="_this" type="vim25:ManagedObjectReference" />
+         <element name="id" type="vim25:ID" />
+         <element name="datastore" type="vim25:ManagedObjectReference" />
+      </sequence>
+   </complexType>
+   <complexType name="HostVStorageObjectCreateDiskFromSnapshotRequestType">
+      <sequence>
+         <element name="_this" type="vim25:ManagedObjectReference" />
+         <element name="id" type="vim25:ID" />
+         <element name="datastore" type="vim25:ManagedObjectReference" />
+         <element name="snapshotId" type="vim25:ID" />
+         <element name="name" type="xsd:string" />
+         <element name="profile" type="vim25:VirtualMachineProfileSpec" minOccurs="0" maxOccurs="unbounded" />
+         <element name="crypto" type="vim25:CryptoSpec" minOccurs="0" />
+         <element name="path" type="xsd:string" minOccurs="0" />
+      </sequence>
+   </complexType>
+   <complexType name="HostVStorageObjectRevertRequestType">
+      <sequence>
+         <element name="_this" type="vim25:ManagedObjectReference" />
+         <element name="id" type="vim25:ID" />
+         <element name="datastore" type="vim25:ManagedObjectReference" />
+         <element name="snapshotId" type="vim25:ID" />
       </sequence>
    </complexType>
    <complexType name="CreateDiskRequestType">
@@ -5180,6 +5400,26 @@
          <element name="name" type="xsd:string" />
       </sequence>
    </complexType>
+   <complexType name="UpdateVStorageObjectPolicyRequestType">
+      <sequence>
+         <element name="_this" type="vim25:ManagedObjectReference" />
+         <element name="id" type="vim25:ID" />
+         <element name="datastore" type="vim25:ManagedObjectReference" />
+         <element name="profile" type="vim25:VirtualMachineProfileSpec" minOccurs="0" maxOccurs="unbounded" />
+      </sequence>
+   </complexType>
+   <complexType name="UpdateVStorageInfrastructureObjectPolicyRequestType">
+      <sequence>
+         <element name="_this" type="vim25:ManagedObjectReference" />
+         <element name="spec" type="vim25:vslmInfrastructureObjectPolicySpec" />
+      </sequence>
+   </complexType>
+   <complexType name="RetrieveVStorageInfrastructureObjectPolicyRequestType">
+      <sequence>
+         <element name="_this" type="vim25:ManagedObjectReference" />
+         <element name="datastore" type="vim25:ManagedObjectReference" />
+      </sequence>
+   </complexType>
    <complexType name="DeleteVStorageObjectRequestType">
       <sequence>
          <element name="_this" type="vim25:ManagedObjectReference" />
@@ -5199,6 +5439,12 @@
          <element name="_this" type="vim25:ManagedObjectReference" />
          <element name="id" type="vim25:ID" />
          <element name="datastore" type="vim25:ManagedObjectReference" />
+      </sequence>
+   </complexType>
+   <complexType name="RetrieveVStorageObjectAssociationsRequestType">
+      <sequence>
+         <element name="_this" type="vim25:ManagedObjectReference" />
+         <element name="ids" type="vim25:RetrieveVStorageObjSpec" minOccurs="0" maxOccurs="unbounded" />
       </sequence>
    </complexType>
    <complexType name="ListVStorageObjectRequestType">
@@ -5221,6 +5467,22 @@
          <element name="id" type="vim25:ID" />
          <element name="datastore" type="vim25:ManagedObjectReference" />
          <element name="spec" type="vim25:VslmRelocateSpec" />
+      </sequence>
+   </complexType>
+   <complexType name="SetVStorageObjectControlFlagsRequestType">
+      <sequence>
+         <element name="_this" type="vim25:ManagedObjectReference" />
+         <element name="id" type="vim25:ID" />
+         <element name="datastore" type="vim25:ManagedObjectReference" />
+         <element name="controlFlags" type="xsd:string" minOccurs="0" maxOccurs="unbounded" />
+      </sequence>
+   </complexType>
+   <complexType name="ClearVStorageObjectControlFlagsRequestType">
+      <sequence>
+         <element name="_this" type="vim25:ManagedObjectReference" />
+         <element name="id" type="vim25:ID" />
+         <element name="datastore" type="vim25:ManagedObjectReference" />
+         <element name="controlFlags" type="xsd:string" minOccurs="0" maxOccurs="unbounded" />
       </sequence>
    </complexType>
    <complexType name="AttachTagToVStorageObjectRequestType">
@@ -5262,6 +5524,49 @@
       <sequence>
          <element name="_this" type="vim25:ManagedObjectReference" />
          <element name="datastore" type="vim25:ManagedObjectReference" />
+      </sequence>
+   </complexType>
+   <complexType name="VStorageObjectCreateSnapshotRequestType">
+      <sequence>
+         <element name="_this" type="vim25:ManagedObjectReference" />
+         <element name="id" type="vim25:ID" />
+         <element name="datastore" type="vim25:ManagedObjectReference" />
+         <element name="description" type="xsd:string" />
+      </sequence>
+   </complexType>
+   <complexType name="DeleteSnapshotRequestType">
+      <sequence>
+         <element name="_this" type="vim25:ManagedObjectReference" />
+         <element name="id" type="vim25:ID" />
+         <element name="datastore" type="vim25:ManagedObjectReference" />
+         <element name="snapshotId" type="vim25:ID" />
+      </sequence>
+   </complexType>
+   <complexType name="RetrieveSnapshotInfoRequestType">
+      <sequence>
+         <element name="_this" type="vim25:ManagedObjectReference" />
+         <element name="id" type="vim25:ID" />
+         <element name="datastore" type="vim25:ManagedObjectReference" />
+      </sequence>
+   </complexType>
+   <complexType name="CreateDiskFromSnapshotRequestType">
+      <sequence>
+         <element name="_this" type="vim25:ManagedObjectReference" />
+         <element name="id" type="vim25:ID" />
+         <element name="datastore" type="vim25:ManagedObjectReference" />
+         <element name="snapshotId" type="vim25:ID" />
+         <element name="name" type="xsd:string" />
+         <element name="profile" type="vim25:VirtualMachineProfileSpec" minOccurs="0" maxOccurs="unbounded" />
+         <element name="crypto" type="vim25:CryptoSpec" minOccurs="0" />
+         <element name="path" type="xsd:string" minOccurs="0" />
+      </sequence>
+   </complexType>
+   <complexType name="RevertVStorageObjectRequestType">
+      <sequence>
+         <element name="_this" type="vim25:ManagedObjectReference" />
+         <element name="id" type="vim25:ID" />
+         <element name="datastore" type="vim25:ManagedObjectReference" />
+         <element name="snapshotId" type="vim25:ID" />
       </sequence>
    </complexType>
 </schema>
