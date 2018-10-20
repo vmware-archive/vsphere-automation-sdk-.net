@@ -180,6 +180,7 @@
                <element name="supportedEVCMode" type="vim25:EVCMode" minOccurs="0" maxOccurs="unbounded" />
                <element name="networkBackupAndRestoreSupported" type="xsd:boolean" minOccurs="0" />
                <element name="ftDrsWithoutEvcSupported" type="xsd:boolean" minOccurs="0" />
+               <element name="hciWorkflowSupported" type="xsd:boolean" minOccurs="0" />
             </sequence>
          </extension>
       </complexContent>
@@ -196,6 +197,199 @@
                <element name="usageSummary" type="vim25:ClusterUsageSummary" minOccurs="0" />
                <element name="currentEVCModeKey" type="xsd:string" minOccurs="0" />
                <element name="dasData" type="vim25:ClusterDasData" minOccurs="0" />
+            </sequence>
+         </extension>
+      </complexContent>
+   </complexType>
+   <complexType name="ClusterComputeResourceDVSSettingDVPortgroupToServiceMapping">
+      <complexContent>
+         <extension base="vim25:DynamicData">
+            <sequence>
+               <element name="dvPortgroup" type="vim25:ManagedObjectReference" />
+               <element name="service" type="xsd:string" />
+            </sequence>
+         </extension>
+      </complexContent>
+   </complexType>
+   <complexType name="ArrayOfClusterComputeResourceDVSSettingDVPortgroupToServiceMapping">
+      <sequence>
+         <element name="ClusterComputeResourceDVSSettingDVPortgroupToServiceMapping" type="vim25:ClusterComputeResourceDVSSettingDVPortgroupToServiceMapping" minOccurs="0" maxOccurs="unbounded" />
+      </sequence>
+   </complexType>
+   <complexType name="ClusterComputeResourceDVSSetting">
+      <complexContent>
+         <extension base="vim25:DynamicData">
+            <sequence>
+               <element name="dvSwitch" type="vim25:ManagedObjectReference" />
+               <element name="pnicDevices" type="xsd:string" minOccurs="0" maxOccurs="unbounded" />
+               <element name="dvPortgroupSetting" type="vim25:ClusterComputeResourceDVSSettingDVPortgroupToServiceMapping" minOccurs="0" maxOccurs="unbounded" />
+            </sequence>
+         </extension>
+      </complexContent>
+   </complexType>
+   <complexType name="ArrayOfClusterComputeResourceDVSSetting">
+      <sequence>
+         <element name="ClusterComputeResourceDVSSetting" type="vim25:ClusterComputeResourceDVSSetting" minOccurs="0" maxOccurs="unbounded" />
+      </sequence>
+   </complexType>
+   <simpleType name="ClusterComputeResourceHCIWorkflowState">
+      <restriction base="xsd:string">
+         <enumeration value="in_progress" />
+         <enumeration value="done" />
+         <enumeration value="invalid" />
+      </restriction>
+   </simpleType>
+   <complexType name="ClusterComputeResourceHostConfigurationProfile">
+      <complexContent>
+         <extension base="vim25:DynamicData">
+            <sequence>
+               <element name="dateTimeConfig" type="vim25:HostDateTimeConfig" minOccurs="0" />
+               <element name="lockdownMode" type="vim25:HostLockdownMode" minOccurs="0" />
+            </sequence>
+         </extension>
+      </complexContent>
+   </complexType>
+   <complexType name="ClusterComputeResourceHCIConfigInfo">
+      <complexContent>
+         <extension base="vim25:DynamicData">
+            <sequence>
+               <element name="workflowState" type="xsd:string" />
+               <element name="dvsSetting" type="vim25:ClusterComputeResourceDVSSetting" minOccurs="0" maxOccurs="unbounded" />
+               <element name="configuredHosts" type="vim25:ManagedObjectReference" minOccurs="0" maxOccurs="unbounded" />
+               <element name="hostConfigProfile" type="vim25:ClusterComputeResourceHostConfigurationProfile" minOccurs="0" />
+            </sequence>
+         </extension>
+      </complexContent>
+   </complexType>
+   <complexType name="ClusterComputeResourceClusterConfigResult">
+      <complexContent>
+         <extension base="vim25:DynamicData">
+            <sequence>
+               <element name="failedHosts" type="vim25:FolderFailedHostResult" minOccurs="0" maxOccurs="unbounded" />
+               <element name="configuredHosts" type="vim25:ManagedObjectReference" minOccurs="0" maxOccurs="unbounded" />
+            </sequence>
+         </extension>
+      </complexContent>
+   </complexType>
+   <complexType name="ClusterComputeResourceDvsProfileDVPortgroupSpecToServiceMapping">
+      <complexContent>
+         <extension base="vim25:DynamicData">
+            <sequence>
+               <element name="dvPortgroupSpec" type="vim25:DVPortgroupConfigSpec" minOccurs="0" />
+               <element name="dvPortgroup" type="vim25:ManagedObjectReference" minOccurs="0" />
+               <element name="service" type="xsd:string" />
+            </sequence>
+         </extension>
+      </complexContent>
+   </complexType>
+   <complexType name="ArrayOfClusterComputeResourceDvsProfileDVPortgroupSpecToServiceMapping">
+      <sequence>
+         <element name="ClusterComputeResourceDvsProfileDVPortgroupSpecToServiceMapping" type="vim25:ClusterComputeResourceDvsProfileDVPortgroupSpecToServiceMapping" minOccurs="0" maxOccurs="unbounded" />
+      </sequence>
+   </complexType>
+   <complexType name="ClusterComputeResourceDvsProfile">
+      <complexContent>
+         <extension base="vim25:DynamicData">
+            <sequence>
+               <element name="dvsName" type="xsd:string" minOccurs="0" />
+               <element name="dvSwitch" type="vim25:ManagedObjectReference" minOccurs="0" />
+               <element name="pnicDevices" type="xsd:string" minOccurs="0" maxOccurs="unbounded" />
+               <element name="dvPortgroupMapping" type="vim25:ClusterComputeResourceDvsProfileDVPortgroupSpecToServiceMapping" minOccurs="0" maxOccurs="unbounded" />
+            </sequence>
+         </extension>
+      </complexContent>
+   </complexType>
+   <complexType name="ArrayOfClusterComputeResourceDvsProfile">
+      <sequence>
+         <element name="ClusterComputeResourceDvsProfile" type="vim25:ClusterComputeResourceDvsProfile" minOccurs="0" maxOccurs="unbounded" />
+      </sequence>
+   </complexType>
+   <complexType name="ClusterComputeResourceVCProfile">
+      <complexContent>
+         <extension base="vim25:DynamicData">
+            <sequence>
+               <element name="clusterSpec" type="vim25:ClusterConfigSpecEx" minOccurs="0" />
+               <element name="evcModeKey" type="xsd:string" minOccurs="0" />
+            </sequence>
+         </extension>
+      </complexContent>
+   </complexType>
+   <complexType name="ClusterComputeResourceHCIConfigSpec">
+      <complexContent>
+         <extension base="vim25:DynamicData">
+            <sequence>
+               <element name="dvsProf" type="vim25:ClusterComputeResourceDvsProfile" minOccurs="0" maxOccurs="unbounded" />
+               <element name="hostConfigProfile" type="vim25:ClusterComputeResourceHostConfigurationProfile" minOccurs="0" />
+               <element name="vSanConfigSpec" type="vim25:SDDCBase" minOccurs="0" />
+               <element name="vcProf" type="vim25:ClusterComputeResourceVCProfile" minOccurs="0" />
+            </sequence>
+         </extension>
+      </complexContent>
+   </complexType>
+   <complexType name="ClusterComputeResourceHostVmkNicInfo">
+      <complexContent>
+         <extension base="vim25:DynamicData">
+            <sequence>
+               <element name="nicSpec" type="vim25:HostVirtualNicSpec" />
+               <element name="service" type="xsd:string" />
+            </sequence>
+         </extension>
+      </complexContent>
+   </complexType>
+   <complexType name="ArrayOfClusterComputeResourceHostVmkNicInfo">
+      <sequence>
+         <element name="ClusterComputeResourceHostVmkNicInfo" type="vim25:ClusterComputeResourceHostVmkNicInfo" minOccurs="0" maxOccurs="unbounded" />
+      </sequence>
+   </complexType>
+   <complexType name="ClusterComputeResourceHostConfigurationInput">
+      <complexContent>
+         <extension base="vim25:DynamicData">
+            <sequence>
+               <element name="host" type="vim25:ManagedObjectReference" />
+               <element name="hostVmkNics" type="vim25:ClusterComputeResourceHostVmkNicInfo" minOccurs="0" maxOccurs="unbounded" />
+               <element name="allowedInNonMaintenanceMode" type="xsd:boolean" minOccurs="0" />
+            </sequence>
+         </extension>
+      </complexContent>
+   </complexType>
+   <complexType name="ArrayOfClusterComputeResourceHostConfigurationInput">
+      <sequence>
+         <element name="ClusterComputeResourceHostConfigurationInput" type="vim25:ClusterComputeResourceHostConfigurationInput" minOccurs="0" maxOccurs="unbounded" />
+      </sequence>
+   </complexType>
+   <complexType name="ClusterComputeResourceValidationResultBase">
+      <complexContent>
+         <extension base="vim25:DynamicData">
+            <sequence>
+               <element name="info" type="vim25:LocalizableMessage" minOccurs="0" maxOccurs="unbounded" />
+            </sequence>
+         </extension>
+      </complexContent>
+   </complexType>
+   <complexType name="ArrayOfClusterComputeResourceValidationResultBase">
+      <sequence>
+         <element name="ClusterComputeResourceValidationResultBase" type="vim25:ClusterComputeResourceValidationResultBase" minOccurs="0" maxOccurs="unbounded" />
+      </sequence>
+   </complexType>
+   <complexType name="ClusterComputeResourceHostConfigurationValidation">
+      <complexContent>
+         <extension base="vim25:ClusterComputeResourceValidationResultBase">
+            <sequence>
+               <element name="host" type="vim25:ManagedObjectReference" />
+               <element name="isDvsSettingValid" type="xsd:boolean" minOccurs="0" />
+               <element name="isVmknicSettingValid" type="xsd:boolean" minOccurs="0" />
+               <element name="isNtpSettingValid" type="xsd:boolean" minOccurs="0" />
+               <element name="isLockdownModeValid" type="xsd:boolean" minOccurs="0" />
+            </sequence>
+         </extension>
+      </complexContent>
+   </complexType>
+   <complexType name="ClusterComputeResourceDVSConfigurationValidation">
+      <complexContent>
+         <extension base="vim25:ClusterComputeResourceValidationResultBase">
+            <sequence>
+               <element name="isDvsValid" type="xsd:boolean" />
+               <element name="isDvpgValid" type="xsd:boolean" />
             </sequence>
          </extension>
       </complexContent>
@@ -338,6 +532,27 @@
          </extension>
       </complexContent>
    </complexType>
+   <complexType name="DatacenterBasicConnectInfo">
+      <complexContent>
+         <extension base="vim25:DynamicData">
+            <sequence>
+               <element name="hostname" type="xsd:string" minOccurs="0" />
+               <element name="error" type="vim25:LocalizedMethodFault" minOccurs="0" />
+               <element name="serverIp" type="xsd:string" minOccurs="0" />
+               <element name="numVm" type="xsd:int" minOccurs="0" />
+               <element name="numPoweredOnVm" type="xsd:int" minOccurs="0" />
+               <element name="hostProductInfo" type="vim25:AboutInfo" minOccurs="0" />
+               <element name="hardwareVendor" type="xsd:string" minOccurs="0" />
+               <element name="hardwareModel" type="xsd:string" minOccurs="0" />
+            </sequence>
+         </extension>
+      </complexContent>
+   </complexType>
+   <complexType name="ArrayOfDatacenterBasicConnectInfo">
+      <sequence>
+         <element name="DatacenterBasicConnectInfo" type="vim25:DatacenterBasicConnectInfo" minOccurs="0" maxOccurs="unbounded" />
+      </sequence>
+   </complexType>
    <complexType name="DatacenterConfigInfo">
       <complexContent>
          <extension base="vim25:DynamicData">
@@ -399,6 +614,7 @@
                <element name="maxMemoryFileSize" type="xsd:long" minOccurs="0" />
                <element name="timestamp" type="xsd:dateTime" minOccurs="0" />
                <element name="containerId" type="xsd:string" minOccurs="0" />
+               <element name="aliasOf" type="xsd:string" minOccurs="0" />
             </sequence>
          </extension>
       </complexContent>
@@ -1134,6 +1350,65 @@
       <sequence>
          <element name="FaultsByVM" type="vim25:FaultsByVM" minOccurs="0" maxOccurs="unbounded" />
       </sequence>
+   </complexType>
+   <simpleType name="FolderDesiredHostState">
+      <restriction base="xsd:string">
+         <enumeration value="maintenance" />
+         <enumeration value="non_maintenance" />
+      </restriction>
+   </simpleType>
+   <complexType name="FolderNewHostSpec">
+      <complexContent>
+         <extension base="vim25:DynamicData">
+            <sequence>
+               <element name="hostCnxSpec" type="vim25:HostConnectSpec" />
+               <element name="esxLicense" type="xsd:string" minOccurs="0" />
+            </sequence>
+         </extension>
+      </complexContent>
+   </complexType>
+   <complexType name="ArrayOfFolderNewHostSpec">
+      <sequence>
+         <element name="FolderNewHostSpec" type="vim25:FolderNewHostSpec" minOccurs="0" maxOccurs="unbounded" />
+      </sequence>
+   </complexType>
+   <complexType name="FolderFailedHostResult">
+      <complexContent>
+         <extension base="vim25:DynamicData">
+            <sequence>
+               <element name="hostName" type="xsd:string" minOccurs="0" />
+               <element name="host" type="vim25:ManagedObjectReference" minOccurs="0" />
+               <element name="context" type="vim25:LocalizableMessage" />
+               <element name="fault" type="vim25:LocalizedMethodFault" />
+            </sequence>
+         </extension>
+      </complexContent>
+   </complexType>
+   <complexType name="ArrayOfFolderFailedHostResult">
+      <sequence>
+         <element name="FolderFailedHostResult" type="vim25:FolderFailedHostResult" minOccurs="0" maxOccurs="unbounded" />
+      </sequence>
+   </complexType>
+   <complexType name="FolderBatchAddStandaloneHostsResult">
+      <complexContent>
+         <extension base="vim25:DynamicData">
+            <sequence>
+               <element name="addedHosts" type="vim25:ManagedObjectReference" minOccurs="0" maxOccurs="unbounded" />
+               <element name="hostsFailedInventoryAdd" type="vim25:FolderFailedHostResult" minOccurs="0" maxOccurs="unbounded" />
+            </sequence>
+         </extension>
+      </complexContent>
+   </complexType>
+   <complexType name="FolderBatchAddHostsToClusterResult">
+      <complexContent>
+         <extension base="vim25:DynamicData">
+            <sequence>
+               <element name="hostsAddedToCluster" type="vim25:ManagedObjectReference" minOccurs="0" maxOccurs="unbounded" />
+               <element name="hostsFailedInventoryAdd" type="vim25:FolderFailedHostResult" minOccurs="0" maxOccurs="unbounded" />
+               <element name="hostsFailedMoveToCluster" type="vim25:FolderFailedHostResult" minOccurs="0" maxOccurs="unbounded" />
+            </sequence>
+         </extension>
+      </complexContent>
    </complexType>
    <simpleType name="ReplicationVmState">
       <restriction base="xsd:string">
@@ -4626,6 +4901,7 @@
                <element name="groupSpec" type="vim25:ClusterGroupSpec" minOccurs="0" maxOccurs="unbounded" />
                <element name="infraUpdateHaConfig" type="vim25:ClusterInfraUpdateHaConfigInfo" minOccurs="0" />
                <element name="proactiveDrsConfig" type="vim25:ClusterProactiveDrsConfigInfo" minOccurs="0" />
+               <element name="inHciWorkflow" type="xsd:boolean" minOccurs="0" />
             </sequence>
          </extension>
       </complexContent>
@@ -7009,6 +7285,7 @@
                <element name="uplinkTeamingOverrideAllowed" type="xsd:boolean" />
                <element name="securityPolicyOverrideAllowed" type="xsd:boolean" />
                <element name="ipfixOverrideAllowed" type="xsd:boolean" minOccurs="0" />
+               <element name="macManagementOverrideAllowed" type="xsd:boolean" minOccurs="0" />
             </sequence>
          </extension>
       </complexContent>
@@ -18608,6 +18885,7 @@
                <element name="vmCreateDateSupported" type="xsd:boolean" minOccurs="0" />
                <element name="vmfs3EOLSupported" type="xsd:boolean" minOccurs="0" />
                <element name="ftVmcpSupported" type="xsd:boolean" minOccurs="0" />
+               <element name="quickBootSupported" type="xsd:boolean" minOccurs="0" />
             </sequence>
          </extension>
       </complexContent>
@@ -18893,6 +19171,11 @@
             </sequence>
          </extension>
       </complexContent>
+   </complexType>
+   <complexType name="ArrayOfHostConnectSpec">
+      <sequence>
+         <element name="HostConnectSpec" type="vim25:HostConnectSpec" minOccurs="0" maxOccurs="unbounded" />
+      </sequence>
    </complexType>
    <complexType name="HostCpuIdInfo">
       <complexContent>
@@ -20251,6 +20534,7 @@
          <enumeration value="unknown" />
          <enumeration value="intel" />
          <enumeration value="amd" />
+         <enumeration value="hygon" />
       </restriction>
    </simpleType>
    <complexType name="HostCpuPackage">
@@ -22107,6 +22391,42 @@
          <element name="NvdimmNamespaceInfo" type="vim25:NvdimmNamespaceInfo" minOccurs="0" maxOccurs="unbounded" />
       </sequence>
    </complexType>
+   <simpleType name="NvdimmNamespaceDetailsHealthStatus">
+      <restriction base="xsd:string">
+         <enumeration value="normal" />
+         <enumeration value="missing" />
+         <enumeration value="labelMissing" />
+         <enumeration value="interleaveBroken" />
+         <enumeration value="labelInconsistent" />
+      </restriction>
+   </simpleType>
+   <simpleType name="NvdimmNamespaceDetailsState">
+      <restriction base="xsd:string">
+         <enumeration value="invalid" />
+         <enumeration value="notInUse" />
+         <enumeration value="inUse" />
+      </restriction>
+   </simpleType>
+   <complexType name="NvdimmNamespaceDetails">
+      <complexContent>
+         <extension base="vim25:DynamicData">
+            <sequence>
+               <element name="uuid" type="xsd:string" />
+               <element name="friendlyName" type="xsd:string" />
+               <element name="size" type="xsd:long" />
+               <element name="type" type="xsd:string" />
+               <element name="namespaceHealthStatus" type="xsd:string" />
+               <element name="interleavesetID" type="xsd:int" />
+               <element name="state" type="xsd:string" />
+            </sequence>
+         </extension>
+      </complexContent>
+   </complexType>
+   <complexType name="ArrayOfNvdimmNamespaceDetails">
+      <sequence>
+         <element name="NvdimmNamespaceDetails" type="vim25:NvdimmNamespaceDetails" minOccurs="0" maxOccurs="unbounded" />
+      </sequence>
+   </complexType>
    <complexType name="NvdimmNamespaceCreateSpec">
       <complexContent>
          <extension base="vim25:DynamicData">
@@ -22116,6 +22436,17 @@
                <element name="blockCount" type="xsd:long" />
                <element name="type" type="xsd:string" />
                <element name="locationID" type="xsd:int" />
+            </sequence>
+         </extension>
+      </complexContent>
+   </complexType>
+   <complexType name="NvdimmPMemNamespaceCreateSpec">
+      <complexContent>
+         <extension base="vim25:DynamicData">
+            <sequence>
+               <element name="friendlyName" type="xsd:string" minOccurs="0" />
+               <element name="size" type="xsd:long" />
+               <element name="interleavesetID" type="xsd:int" />
             </sequence>
          </extension>
       </complexContent>
@@ -22140,6 +22471,7 @@
                <element name="iSetInfo" type="vim25:NvdimmInterleaveSetInfo" minOccurs="0" maxOccurs="unbounded" />
                <element name="namespace" type="vim25:NvdimmGuid" minOccurs="0" maxOccurs="unbounded" />
                <element name="nsInfo" type="vim25:NvdimmNamespaceInfo" minOccurs="0" maxOccurs="unbounded" />
+               <element name="nsDetails" type="vim25:NvdimmNamespaceDetails" minOccurs="0" maxOccurs="unbounded" />
             </sequence>
          </extension>
       </complexContent>
@@ -23716,6 +24048,8 @@
          <enumeration value="AssetTag" />
          <enumeration value="ServiceTag" />
          <enumeration value="OemSpecificString" />
+         <enumeration value="EnclosureSerialNumberTag" />
+         <enumeration value="SerialNumberTag" />
       </restriction>
    </simpleType>
    <complexType name="HostSystemIdentificationInfo">
@@ -29065,6 +29399,7 @@
          <enumeration value="vmkernel5Guest" />
          <enumeration value="vmkernel6Guest" />
          <enumeration value="vmkernel65Guest" />
+         <enumeration value="amazonlinux2_64Guest" />
          <enumeration value="otherGuest" />
          <enumeration value="otherGuest64" />
       </restriction>

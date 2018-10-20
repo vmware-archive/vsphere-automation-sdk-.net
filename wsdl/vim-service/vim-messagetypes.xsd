@@ -132,6 +132,32 @@
          <element name="host" type="vim25:ManagedObjectReference" maxOccurs="unbounded" />
       </sequence>
    </complexType>
+   <complexType name="ConfigureHCIRequestType">
+      <sequence>
+         <element name="_this" type="vim25:ManagedObjectReference" />
+         <element name="clusterSpec" type="vim25:ClusterComputeResourceHCIConfigSpec" />
+         <element name="hostInputs" type="vim25:ClusterComputeResourceHostConfigurationInput" minOccurs="0" maxOccurs="unbounded" />
+      </sequence>
+   </complexType>
+   <complexType name="ExtendHCIRequestType">
+      <sequence>
+         <element name="_this" type="vim25:ManagedObjectReference" />
+         <element name="hostInputs" type="vim25:ClusterComputeResourceHostConfigurationInput" minOccurs="0" maxOccurs="unbounded" />
+         <element name="vSanConfigSpec" type="vim25:SDDCBase" minOccurs="0" />
+      </sequence>
+   </complexType>
+   <complexType name="AbandonHciWorkflowRequestType">
+      <sequence>
+         <element name="_this" type="vim25:ManagedObjectReference" />
+      </sequence>
+   </complexType>
+   <complexType name="ValidateHCIConfigurationRequestType">
+      <sequence>
+         <element name="_this" type="vim25:ManagedObjectReference" />
+         <element name="hciConfigSpec" type="vim25:ClusterComputeResourceHCIConfigSpec" minOccurs="0" />
+         <element name="hosts" type="vim25:ManagedObjectReference" minOccurs="0" maxOccurs="unbounded" />
+      </sequence>
+   </complexType>
    <complexType name="ReconfigureClusterRequestType">
       <sequence>
          <element name="_this" type="vim25:ManagedObjectReference" />
@@ -321,6 +347,12 @@
       <sequence>
          <element name="_this" type="vim25:ManagedObjectReference" />
          <element name="guestOs" type="xsd:string" />
+      </sequence>
+   </complexType>
+   <complexType name="BatchQueryConnectInfoRequestType">
+      <sequence>
+         <element name="_this" type="vim25:ManagedObjectReference" />
+         <element name="hostSpecs" type="vim25:HostConnectSpec" minOccurs="0" maxOccurs="unbounded" />
       </sequence>
    </complexType>
    <complexType name="QueryConnectionInfoRequestType">
@@ -783,6 +815,24 @@
          <element name="name" type="xsd:string" />
       </sequence>
    </complexType>
+   <complexType name="BatchAddStandaloneHostsRequestType">
+      <sequence>
+         <element name="_this" type="vim25:ManagedObjectReference" />
+         <element name="newHosts" type="vim25:FolderNewHostSpec" minOccurs="0" maxOccurs="unbounded" />
+         <element name="compResSpec" type="vim25:ComputeResourceConfigSpec" minOccurs="0" />
+         <element name="addConnected" type="xsd:boolean" />
+      </sequence>
+   </complexType>
+   <complexType name="BatchAddHostsToClusterRequestType">
+      <sequence>
+         <element name="_this" type="vim25:ManagedObjectReference" />
+         <element name="cluster" type="vim25:ManagedObjectReference" />
+         <element name="newHosts" type="vim25:FolderNewHostSpec" minOccurs="0" maxOccurs="unbounded" />
+         <element name="existingHosts" type="vim25:ManagedObjectReference" minOccurs="0" maxOccurs="unbounded" />
+         <element name="compResSpec" type="vim25:ComputeResourceConfigSpec" minOccurs="0" />
+         <element name="desiredState" type="xsd:string" minOccurs="0" />
+      </sequence>
+   </complexType>
    <complexType name="RegisterHealthUpdateProviderRequestType">
       <sequence>
          <element name="_this" type="vim25:ManagedObjectReference" />
@@ -1078,6 +1128,17 @@
       <sequence>
          <element name="_this" type="vim25:ManagedObjectReference" />
          <element name="keyId" type="vim25:CryptoKeyId" minOccurs="0" />
+      </sequence>
+   </complexType>
+   <complexType name="QueryProductLockerLocationRequestType">
+      <sequence>
+         <element name="_this" type="vim25:ManagedObjectReference" />
+      </sequence>
+   </complexType>
+   <complexType name="UpdateProductLockerLocationRequestType">
+      <sequence>
+         <element name="_this" type="vim25:ManagedObjectReference" />
+         <element name="path" type="xsd:string" />
       </sequence>
    </complexType>
    <complexType name="HttpNfcLeaseGetManifestRequestType">
@@ -3591,6 +3652,12 @@
       <sequence>
          <element name="_this" type="vim25:ManagedObjectReference" />
          <element name="createSpec" type="vim25:NvdimmNamespaceCreateSpec" />
+      </sequence>
+   </complexType>
+   <complexType name="CreateNvdimmPMemNamespaceRequestType">
+      <sequence>
+         <element name="_this" type="vim25:ManagedObjectReference" />
+         <element name="createSpec" type="vim25:NvdimmPMemNamespaceCreateSpec" />
       </sequence>
    </complexType>
    <complexType name="DeleteNvdimmNamespaceRequestType">
