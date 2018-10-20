@@ -29,8 +29,8 @@
 This document describes the vSphere Automation .NET SDK samples that use the vSphere Automation
 .NET client library. The samples have been developed to work with .NET Framework 4.5.
 
-## Supported vCenter Releases:
-vCenter 6.0, 6.5, 6.7 and vCenter 6.6.3 for VMware Cloud on AWS 1.3.
+## Supported OnPrem vCenter Releases:
+vCenter 6.0, 6.5, 6.7 and 6.7 U1.
 
 Please refer to the notes in each sample for detailed compatibility information.
 
