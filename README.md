@@ -88,7 +88,7 @@ Apart from the above, each individual sample may require additional setup. Pleas
 ## API Documentation
 The API documentation can be downloaded from [here](doc/docs.zip).
 
-Online version of the API documentation can be found [here](https://code.vmware.com/web/dp/doc/preview?id=4647).
+Online version of the API documentation can be found [here](https://vmware.github.io/vsphere-automation-sdk-.net/vsphere/6.7.1/vapi-client-bindings/index.html).
 
 ## Submitting samples
 
