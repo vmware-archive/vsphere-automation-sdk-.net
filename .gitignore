@@ -1,6 +1,0 @@
-bin
-obj
-.vs/
-packages/CommandLineParser.1.9.71/
-packages/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7/
-packages/Microsoft.Net.Compilers.2.1.0/
