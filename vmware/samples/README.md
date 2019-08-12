@@ -4,6 +4,7 @@ The following table shows the sample sub-directories and their contents.
 
 Directory       | Description
 ----------------| -------------
+appliance       | Samples for appliance APIs
 common          | Samples common helper classes and abstractions; This package does NOT contain any sample
 tagging         | Samples for Tagging APIs
 vcenter	        | Samples for managing vSphere infrastructure and virtual machines
