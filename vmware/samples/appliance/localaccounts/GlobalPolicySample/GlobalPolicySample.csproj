@@ -43,15 +43,19 @@
     <Reference Include="CommandLine">
       <HintPath>..\..\..\..\..\packages\CommandLineParser.1.9.71\lib\net45\CommandLine.dll</HintPath>
     </Reference>
-    <Reference Include="SamplesCommon">
-      <HintPath>..\..\..\common\SamplesCommon\bin\Debug\SamplesCommon.dll</HintPath>
-    </Reference>
+    <Reference Include="System" />
     <Reference Include="vapi-client-bindings">
       <HintPath>..\..\..\..\..\packages\vapi-client-bindings.dll</HintPath>
     </Reference>
     <Reference Include="vapi-runtime">
       <HintPath>..\..\..\..\..\packages\vapi-runtime.dll</HintPath>
     </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\common\SamplesCommon\SamplesCommon.csproj">
+      <Project>{1acd25a4-62ea-4b6f-a1df-6f1a531bbf4b}</Project>
+      <Name>SamplesCommon</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
