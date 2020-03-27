@@ -86,8 +86,11 @@ Apart from the above, each individual sample may require additional setup. Pleas
 ![New Project](screenshots/newProject.jpg?raw=true)
 
 ## API Documentation
-The API documentation can be downloaded from [here](doc/docs.zip).
 
+### vSphere API Documentation
+The API documentation can be downloaded from [here](doc/docs.zip).
+* [vSphere 7.0.0 (latest)](https://vmware.github.io/vsphere-automation-sdk-.net/vsphere/7.0.0/vapi-client-bindings/index.html).
+* Previous releases:    [6.7.1](https://vmware.github.io/vsphere-automation-sdk-.net/vsphere/6.7.1/vapi-client-bindings/index.html)    [6.5.0](https://vmware.github.io/vsphere-automation-sdk-.net/vsphere/6.7.1/vapi-client-bindings/index.html)
 Online version of the API documentation can be found [here](https://vmware.github.io/vsphere-automation-sdk-.net/vsphere/6.7.1/vapi-client-bindings/index.html).
 
 ## Submitting samples
