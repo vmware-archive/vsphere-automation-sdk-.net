@@ -22,6 +22,7 @@ namespace vmware.samples.appliance.LocalAccount.GlobalPolicy
     using vmware.appliance.local_accounts;
     using common.authentication;
 
+
     public class GlobalPolicySample : SamplesBase
     {
         private Policy localAccountsPolicy;
@@ -84,7 +85,6 @@ namespace vmware.samples.appliance.LocalAccount.GlobalPolicy
         static void Main(string[] args)
         {
             new GlobalPolicySample().Execute(args);
-
             Console.ReadKey();
         }
     }
