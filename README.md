@@ -85,9 +85,9 @@ Apart from the above, each individual sample may require additional setup. Pleas
 3. Select the template as the image below shows
 ![New Project](screenshots/newProject.jpg?raw=true)
 
-### vSphere-API-Documentation
+## API Documentation
 
-* Current release:       [7.0.0](https://vmware.github.io/vsphere-automation-sdk-.net/vsphere/7.0.0/vapi-client-bindings/index.html).
+* vSphere 7.0.0 (latest):       [7.0.0](https://vmware.github.io/vsphere-automation-sdk-.net/vsphere/7.0.0/vapi-client-bindings/index.html).
 * Previous releases:    [6.7.1](https://vmware.github.io/vsphere-automation-sdk-.net/vsphere/6.7.1/vapi-client-bindings/index.html).
 
 ## Submitting samples
