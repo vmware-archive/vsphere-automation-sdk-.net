@@ -9,7 +9,7 @@
   - [Building the Samples](#building-the-samples)
   - [Running the Samples](#running-the-samples)
   - [Adding a new sample using a template](#adding-a-new-sample-using-a-template)
-- [API Documentation](#vSphere-API-Documentation)
+- [API Documentation](#api-documentation)
 - [Submitting samples](#submitting-samples)
   - [Required Information](#required-information)
   - [Suggested Information](#suggested-information)
@@ -87,7 +87,7 @@ Apart from the above, each individual sample may require additional setup. Pleas
 
 ## API Documentation
 
-* vSphere 7.0.0 (latest):       [7.0.0](https://vmware.github.io/vsphere-automation-sdk-.net/vsphere/7.0.0/vapi-client-bindings/index.html).
+* [vSphere 7.0.0 (latest)](https://vmware.github.io/vsphere-automation-sdk-.net/vsphere/7.0.0/vapi-client-bindings/index.html).
 * Previous releases:    [6.7.1](https://vmware.github.io/vsphere-automation-sdk-.net/vsphere/6.7.1/vapi-client-bindings/index.html).
 
 ## Submitting samples
