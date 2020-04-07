@@ -85,10 +85,11 @@ Apart from the above, each individual sample may require additional setup. Pleas
 3. Select the template as the image below shows
 ![New Project](screenshots/newProject.jpg?raw=true)
 
-## API Documentation
+### vSphere API Documentation
 The API documentation can be downloaded from [here](doc/docs.zip).
 
-Online version of the API documentation can be found [here](https://vmware.github.io/vsphere-automation-sdk-.net/vsphere/6.7.1/vapi-client-bindings/index.html).
+* Latest release:       [7.0.0](https://ngp-star.github.io/vsphere-automation-sdk-.net/vsphere/7.0.0/vapi-client-bindings/index.html).
+* Previous releases:    [6.7.1](https://vmware.github.io/vsphere-automation-sdk-.net/vsphere/6.7.1/vapi-client-bindings/index.html).
 
 ## Submitting samples
 
