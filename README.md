@@ -30,7 +30,7 @@ This document describes the vSphere Automation .NET SDK samples that use the vSp
 .NET client library. The samples have been developed to work with .NET Framework 4.5.
 
 ## Supported OnPrem vCenter Releases:
-vCenter 6.0, 6.5, 6.7 and 6.7 U1.
+vCenter 6.0, 6.5, 6.7, 6.7 U1 and 7.0.0.
 
 Please refer to the notes in each sample for detailed compatibility information.
 
