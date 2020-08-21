@@ -1,3 +1,7 @@
+# THIS REPOSITORY HAS BEEN DEPRECATED!
+
+VMware has announced deprecation of vSphere Automation SDK for Perl and vSphere Automation SDK for .NET, effective August 25th, 2020. We highly recommend all our customers and partners to migrate from these SDKs to either [vSphere Automation SDK for Python](https://github.com/vmware/vsphere-automation-sdk-python) or [vSphere Automation SDK for Java](https://github.com/vmware/vsphere-automation-sdk-java/). Refer to https://ikb.vmware.com/s/article/80144 for more details.
+
 # VMware vSphere Automation SDK for .NET
 ## Table of Contents
 - [Abstract](#abstract)
